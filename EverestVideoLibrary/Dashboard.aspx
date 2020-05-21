@@ -1,20 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="EverestVideoLibrary.Dashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="EverestVideoLibrary.WebForm1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+   <div class="container" style="margin-top: 5%; width: 100%;">
+       <h5>
+        This is the main dashboard page of the system!
+       </h5>
+   </div>
 
-<!DOCTYPE html>
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            Hello, Everyone!!
-            Chai pelo
-        </div>
-        <div class="logoutBtn">
-            <asp:Button ID="Btn_logout" runat="server" Text="Logout" OnClick="Btn_logout_Click" />
-        </div>
-    </form>
-</body>
-</html>

@@ -35,6 +35,7 @@ namespace EverestVideoLibrary
             foreach (DataRow dr in datatable.Rows)
             {
                 Session["username"] = dr["username"].ToString();
+                Session["usertype"] = dr["usertype"].ToString();
                 Response.Redirect("Dashboard.aspx");
 
             }
