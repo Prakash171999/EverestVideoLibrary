@@ -79,8 +79,11 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DVDCopyLoan.aspx" />
+    <Content Include="DVDdetails.aspx" />
     <Content Include="Global.asax" />
     <Content Include="logout.png" />
+    <Content Include="MemberBorrowedDVDs.aspx" />
     <Content Include="user2.png" />
     <Content Include="user.png" />
     <Content Include="logoEVL.png" />
@@ -97,6 +100,10 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="DVDLoanList.aspx" />
+    <Content Include="NotBorrowedDVDs.aspx" />
+    <Content Include="DVDCopyDetails.aspx" />
+    <Content Include="DVDCopyCRUD.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -177,6 +184,20 @@
     <Content Include="Dashboard.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DVDCopyLoan.aspx.cs">
+      <DependentUpon>DVDCopyLoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DVDCopyLoan.aspx.designer.cs">
+      <DependentUpon>DVDCopyLoan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DVDdetails.aspx.cs">
+      <DependentUpon>DVDdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DVDdetails.aspx.designer.cs">
+      <DependentUpon>DVDdetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,6 +207,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberBorrowedDVDs.aspx.cs">
+      <DependentUpon>MemberBorrowedDVDs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberBorrowedDVDs.aspx.designer.cs">
+      <DependentUpon>MemberBorrowedDVDs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
@@ -201,6 +229,34 @@
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DVDLoanList.aspx.cs">
+      <DependentUpon>DVDLoanList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DVDLoanList.aspx.designer.cs">
+      <DependentUpon>DVDLoanList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotBorrowedDVDs.aspx.cs">
+      <DependentUpon>NotBorrowedDVDs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotBorrowedDVDs.aspx.designer.cs">
+      <DependentUpon>NotBorrowedDVDs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DVDCopyDetails.aspx.cs">
+      <DependentUpon>DVDCopyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DVDCopyDetails.aspx.designer.cs">
+      <DependentUpon>DVDCopyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DVDCopyCRUD.aspx.cs">
+      <DependentUpon>DVDCopyCRUD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DVDCopyCRUD.aspx.designer.cs">
+      <DependentUpon>DVDCopyCRUD.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

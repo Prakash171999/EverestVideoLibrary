@@ -57,7 +57,7 @@
         }
     </style>
 </head>
-<body style="margin-top: -0px; margin-left: -0px; margin-right:-0px; height: 130vh">
+<body style="margin-top: -0px; margin-left: -0px; margin-right:-0px; height: 100vh">
     <form id="form1" runat="server" style="padding-top: initial " >
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container-fluid">

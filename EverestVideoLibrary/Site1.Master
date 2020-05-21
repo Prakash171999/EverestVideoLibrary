@@ -37,14 +37,33 @@
             <ul class="list-unstyled components">
                 <li>
                    <a href="Dashboard.aspx">Dashboard</a>
-                   <%--<a href="staffDetails.aspx">Staff Details</a>
-                   <a href="CustomerDetails.aspx" >Customer Details</a>
-                   <a href="DesignationDetails.aspx">Designation Details</a>
-                   <a href="PackageDetails.aspx">Package Details</a>
-                   <a href="GuideDetails.aspx">Guide Details</a>
-                   <a href="Package-Activity.aspx">Package Activity</a>
-                   <a href="CustPkgSchedule.aspx">Customer Package Schedule</a>
-                   <a href="Staff-Role.aspx">Staff Roles</a>--%>
+                </li>
+                <li>
+                    <a href="DVDLoanList.aspx">DVD On Loan</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members Who</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="MemberBorrowedDVDs.aspx">Borrowed DVD's</a>
+                        </li>
+                        <li>
+                            <a href="NotBorrowedDVDs.aspx">Not Borrowed DVD's</a>
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="DVDdetails.aspx">DVD Details</a>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage DVD Copies</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li>
+                            <a href="DVDCopyDetails.aspx">DVD Copy Details</a>
+                        </li>
+                        <li>
+                            <a href="DVDCopyCRUD.aspx">DVD Copy CRUD</a>
+                        </li>
+                        <li>
+                            <a href="DVDCopyLoan.aspx">DVD Copies On Loan</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <div class="logoutBtn" style="margin-left:4%">
@@ -81,6 +100,15 @@
             </div>
            </div>
     </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
