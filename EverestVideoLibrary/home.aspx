@@ -137,7 +137,7 @@
                            <asp:Button ID="Button3" runat="server" Text="Log In" Width="77px" Height="31px" OnClick="Button3_Click" BackColor="#CC0000" BorderColor="#CC0000" Font-Bold="True" ForeColor="White"  />
                         </div>
                         <div class="btn-cancel" style="margin-top: -12%; margin-left: 28%;">
-                           <asp:Button ID="Button4" runat="server" Text="Cancel" Width="77px" Height="31px" BackColor="#009900" BorderColor="#009900" Font-Bold="True" ForeColor="White"  />
+                           <asp:Button ID="Button4" runat="server" Text="Cancel" Width="77px" Height="31px" BackColor="#009900" BorderColor="#009900" Font-Bold="True" ForeColor="White" OnClick="Button4_Click"  />
                         </div>
                         <div class="login-msg" style="margin-top: 4%; text-align:center">
                             <asp:Label ID="lblResult" runat="server" Text="" ForeColor="Red"></asp:Label>
