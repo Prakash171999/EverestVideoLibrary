@@ -30,6 +30,7 @@
         }
         .logo{
             margin-left: 2%;
+
         }
 
         /*for popup*/
@@ -52,7 +53,7 @@
             padding-top: 10px;
             padding-left: 10px;
             width: 350px;
-            height: 250px;
+            height: 290px;
         }
     </style>
 </head>
@@ -60,12 +61,14 @@
     <form id="form1" runat="server" style="padding-top: initial " >
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container-fluid">
-                <div class="header" style="height: 65px; ">
+                <div class="header" style="height: 75px; ">
                 <div class="logo"> 
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/logoEVL.png" Height="58px" Width="60px"/>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/logoEVL.png" Height="70px" Width="60px"/>
                 </div>  
                 <div class="nav-menu" style="margin-left: 92%; ">
-                    <asp:HyperLink ID="HyperLink1" runat="server" style="color: white; font-size:16px; width: 69px; height: 29px;">Log In</asp:HyperLink>
+                    <a>
+                       <asp:HyperLink ID="HyperLink1" runat="server" style="color: white; font-size:19px; width: 69px; height: 29px;">Log In</asp:HyperLink>
+                    </a>
                 </div>
             </div>
                      
@@ -131,20 +134,32 @@
                     </h2>
                     <div class="popDialogue" style="margin-left:13%; margin-top: 10%; width: 256px;">
                                
-                        Username:&nbsp; <asp:TextBox ID="TextBox1" runat="server" Width="169px" Height="23px"></asp:TextBox><br /><br />
-                        Password:&nbsp;&nbsp; <asp:TextBox ID="TextBox2" TextMode="Password" runat="server" Width="167px" Height="23px" OnTextChanged="TextBox2_TextChanged" style="margin-bottom: 0px"></asp:TextBox><br /><br />
-                        <div class="btn-login" style="margin-left:67%; width: 74px; ">
+                        Username:&nbsp; <asp:TextBox ID="TextBox1" runat="server" Width="170px" Height="23px"></asp:TextBox><br /><br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter Username!" ForeColor="Red" ControlToValidate="TextBox1"></asp:RequiredFieldValidator><br />
+                        Password:&nbsp;&nbsp; <asp:TextBox ID="TextBox2" TextMode="Password" runat="server" Width="170px" Height="23px" OnTextChanged="TextBox2_TextChanged" style="margin-bottom: 0px"></asp:TextBox><br /><br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Password!" ForeColor="Red" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
+                        <div class="btn-login" style="margin-left:64%; width: 74px; ">
                            <asp:Button ID="Button3" runat="server" Text="Log In" Width="77px" Height="31px" OnClick="Button3_Click" BackColor="#CC0000" BorderColor="#CC0000" Font-Bold="True" ForeColor="White"  />
                         </div>
-                        <div class="btn-cancel" style="margin-top: -12%; margin-left: 28%;">
+                        <%--<div class="btn-cancel" style="margin-top: -12%; margin-left: 28%;">
                            <asp:Button ID="Button4" runat="server" Text="Cancel" Width="77px" Height="31px" BackColor="#009900" BorderColor="#009900" Font-Bold="True" ForeColor="White" OnClick="Button4_Click"  />
-                        </div>
+                        </div>--%>
                         <div class="login-msg" style="margin-top: 4%; text-align:center">
                             <asp:Label ID="lblResult" runat="server" Text="" ForeColor="Red"></asp:Label>
                         </div>
                     </div>
                 </asp:Panel>
-                <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" TargetControlID="HyperLink1" PopupControlID="Panel1" BackgroundCssClass="background" runat="server"></ajaxToolkit:ModalPopupExtender>
+                <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" TargetControlID="HyperLink1" PopupControlID="Panel1" BehaviorID="mpe" BackgroundCssClass="background" runat="server"></ajaxToolkit:ModalPopupExtender>
             </form>
    </body>
+    <script type="text/javascript">
+    function pageLoad() {
+        var modalPopup = $find('mpe');
+        modalPopup.add_shown(function () {
+            modalPopup._backgroundElement.addEventListener("click", function () {
+                modalPopup.hide();
+            });
+        });
+    };
+</script>
 </html>

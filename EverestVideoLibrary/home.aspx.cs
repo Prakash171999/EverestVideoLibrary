@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
+
 
 namespace EverestVideoLibrary
 {
@@ -29,23 +31,29 @@ namespace EverestVideoLibrary
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "select * from users where username='" + TextBox1.Text + "' and password='" + TextBox2.Text + "'";
             cmd.ExecuteNonQuery();
+            
             DataTable datatable = new DataTable();
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             dataAdapter.Fill(datatable);
             foreach (DataRow dr in datatable.Rows)
             {
-                Session["username"] = dr["username"].ToString();
-                Session["usertype"] = dr["usertype"].ToString();
-                Response.Redirect("Dashboard.aspx");
-
+                if(datatable.Rows.Count > 0)
+                {
+                    Session["username"] = dr["username"].ToString();
+                    Session["usertype"] = dr["usertype"].ToString();
+                    Response.Redirect("Dashboard.aspx");
+                }
+                else
+                {
+                   ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Invalid Username and Password')</script>");
+                }
             }
             conn.Close();
         }
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            //Response.Write("<script>window.close()</script>");
-            Response.Write("<script language='javascript'> { self.close() }</script>");
+
         }
     }
 }
