@@ -28,8 +28,8 @@
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlMemberDVDLoaned" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_ID], [DVD_title], [Category], [IsAgeRestricted], [ReleaseDate], [StandardCharge], [PenaltyCharge] FROM [DVD]"></asp:SqlDataSource>
-                    <div class="memberID-dropdown" style="margin-top: 30px;">
-                        Select MemberID: &nbsp; <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="memberIDDropdown" DataTextField="MemberID" DataValueField="MemberID" Height="29px" Width="130px" Font-Size="Large"></asp:DropDownList>
+                    <div class="memberID-dropdown" style="margin-top: 30px; width: 35%;">
+                        Select MemberID: &nbsp; <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="memberIDDropdown" DataTextField="MemberID" DataValueField="MemberID"  Font-Size="Large"></asp:DropDownList>
                         <asp:SqlDataSource ID="memberIDDropdown" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [MemberID] FROM [Member]"></asp:SqlDataSource>
                     </div>
                 </div>

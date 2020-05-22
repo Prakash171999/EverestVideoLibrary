@@ -3,17 +3,25 @@
      <div class="container-fluid">
         <div class="table-wrapper">
             <div class="table-title">
-                <h4 style="margin-top:2%; margin-left: -1.5%;">Manage DVD Booking</h4>
-                <div class="column col-6" style="margin-left: -3%; top: 2px; left: 3px; height: 940px;">
-                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" AutoGenerateColumns="False" DataKeyNames="DVD_ID" DataSourceID="SqlDataSource1">
+                <h4 style="margin-top:2%; margin-left: -4%;">Manage DVD Booking</h4>
+                <div class="column col-6" style="margin-left: -5.5%; top: 2px; left: 3px; height: 1500px;">
+                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
-                            <asp:BoundField DataField="DVD_ID" HeaderText="DVD_ID" InsertVisible="False" ReadOnly="True" SortExpression="DVD_ID" />
-                            <asp:BoundField DataField="DVD_title" HeaderText="DVD_title" SortExpression="DVD_title" />
-                            <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
-                            <asp:BoundField DataField="ReleaseDate" HeaderText="ReleaseDate" SortExpression="ReleaseDate" />
-                            <asp:BoundField DataField="StandardCharge" HeaderText="StandardCharge" SortExpression="StandardCharge" />
-                            <asp:CommandField ButtonType="Button" HeaderText="Action" ShowEditButton="True" ShowDeleteButton="True" />
+                            <asp:BoundField DataField="LoanID" HeaderText="LoanID" InsertVisible="False" ReadOnly="True" SortExpression="LoanID" />
+                            <asp:BoundField DataField="CopyID" HeaderText="CopyID" InsertVisible="False" ReadOnly="True" SortExpression="CopyID" />
+                            <asp:BoundField DataField="MemberID" HeaderText="MemberID" InsertVisible="False" ReadOnly="True" SortExpression="MemberID" />
+                            <asp:BoundField DataField="LoanTypeID" HeaderText="LoanTypeID" InsertVisible="False" ReadOnly="True" SortExpression="LoanTypeID" />
+                            <asp:BoundField DataField="LoanType" HeaderText="LoanType" SortExpression="LoanType" />
+                            <asp:BoundField DataField="TypeSpan" HeaderText="TypeSpan" SortExpression="TypeSpan" />
+                            <asp:BoundField DataField="IssuedDate" HeaderText="IssuedDate" SortExpression="IssuedDate" />
+                            <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" />
+                            <asp:BoundField DataField="ReturnedDate" HeaderText="ReturnedDate" SortExpression="ReturnedDate" />
+                            <asp:BoundField DataField="Days" HeaderText="Days" SortExpression="Days" />
+                            <asp:BoundField DataField="Fine" HeaderText="Fine" ReadOnly="True" SortExpression="Fine" />
+                            <asp:CommandField ButtonType="Button" HeaderText="Action" ShowEditButton="True" >
+                            <ControlStyle BackColor="#000046" BorderColor="#000046" ForeColor="White" />
+                            </asp:CommandField>
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />
@@ -25,7 +33,7 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_ID], [DVD_title], [Category], [ReleaseDate], [StandardCharge] FROM [DVD]" DeleteCommand="DELETE FROM [DVD] WHERE [DVD_ID] = @DVD_ID" InsertCommand="INSERT INTO [DVD] ([DVD_title], [Category], [ReleaseDate], [StandardCharge]) VALUES (@DVD_title, @Category, @ReleaseDate, @StandardCharge)" UpdateCommand="UPDATE [DVD] SET [DVD_title] = @DVD_title, [Category] = @Category, [ReleaseDate] = @ReleaseDate, [StandardCharge] = @StandardCharge WHERE [DVD_ID] = @DVD_ID">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Loan.LoanID, DVD_Copy.CopyID, Member.MemberID, LoanType.LoanTypeID, LoanType.LoanType, LoanType.LoanDuration AS TypeSpan, Loan.IssuedDate, Loan.DueDate, Loan.ReturnedDate, Loan.TotalDays AS Days, (SELECT CASE WHEN (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) &lt; 0 THEN 0 ELSE (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) END AS Expr1) AS Fine FROM Member INNER JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN DVD_Copy ON Loan.CopyID = DVD_Copy.CopyID INNER JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID INNER JOIN LoanType ON LoanType.LoanTypeID = Loan.LoanTypeID" DeleteCommand="DELETE FROM [DVD] WHERE [DVD_ID] = @DVD_ID" InsertCommand="INSERT INTO [DVD] ([DVD_title], [Category], [ReleaseDate], [StandardCharge]) VALUES (@DVD_title, @Category, @ReleaseDate, @StandardCharge)" UpdateCommand="UPDATE [DVD] SET [DVD_title] = @DVD_title, [Category] = @Category, [ReleaseDate] = @ReleaseDate, [StandardCharge] = @StandardCharge WHERE [DVD_ID] = @DVD_ID">
                         <DeleteParameters>
                             <asp:Parameter Name="DVD_ID" Type="Int64" />
                         </DeleteParameters>
@@ -45,37 +53,83 @@
                     </asp:SqlDataSource>
                     <div class="check-restriction" style="margin-top: 5%">
                         <h5><asp:Label ID="Label1" runat="server" Text="Check Age Restriction"></asp:Label></h5><br />
-                        <h6>Member ID: <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlMemberID" DataTextField="MemberID" DataValueField="MemberID"></asp:DropDownList></h6>
+                        <h6>Member ID: <asp:DropDownList ID="DropDownList1" CSSClass="form-control" runat="server" DataSourceID="SqlMemberID" DataTextField="MemberID" DataValueField="MemberID"></asp:DropDownList></h6>
                         <asp:SqlDataSource ID="SqlMemberID" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [MemberID] FROM [Member]"></asp:SqlDataSource><br />
-                        <h6>DVD Title: <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDVDTitle" DataTextField="DVD_title" DataValueField="DVD_title"></asp:DropDownList></h6>
+                        <h6>DVD Title: <asp:DropDownList CSSClass="form-control" ID="DropDownList2" runat="server" DataSourceID="SqlDVDTitle" DataTextField="DVD_title" DataValueField="DVD_title"></asp:DropDownList></h6>
                         <asp:SqlDataSource ID="SqlDVDTitle" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_title] FROM [DVD]"></asp:SqlDataSource>
                         <div class="checkBtn" style="margin-top: 5%;">
-                            <asp:Button ID="Button1" runat="server" Text="Check" BackColor="#1aa50d" ForeColor="white" Height="35px" Width="87px" BorderColor="#1aa50d" />
+                            <asp:Button ID="Button1" runat="server" Text="Check Restriction" BackColor="#000046" ForeColor="white" Height="38px" Width="153px" BorderColor="#000046" />
+
+                        &nbsp;&nbsp;
 
                         </div>
                     </div>
                     <div class="addBookDetails" style="margin-top:4%;">
-                        <asp:FormView ID="FormView1" runat="server" DataKeyNames="DVD_ID" DataSourceID="SqlDataSource1" Height="10px">
-                        <InsertItemTemplate>
-                            DVD_title:
-                            <asp:TextBox ID="DVD_titleTextBox" class="form-control" runat="server" Text='<%# Bind("DVD_title") %>' />
-                            <br />
-                            Category:
-                            <asp:TextBox ID="CategoryTextBox" class="form-control" runat="server" Text='<%# Bind("Category") %>' />
-                            <br />
-                            ReleaseDate:
-                            <asp:TextBox ID="ReleaseDateTextBox" class="form-control" runat="server" Text='<%# Bind("ReleaseDate") %>' />
-                            <br />
-                            StandardCharge:
-                            <asp:TextBox ID="StandardChargeTextBox" class="form-control" runat="server" Text='<%# Bind("StandardCharge") %>' />
-                            <br />
-                            <button style="background-color: #1aa50d; border-color: #1aa50d;"><asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" ForeColor="white" Height="30px" /></button>
-                            <button style="background-color: brown; border-color: brown;">&nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" Height="30px" ForeColor="white" /></button>
-                        </InsertItemTemplate>
-                        <ItemTemplate>
-                            <button style="background-color: brown; border-color: brown; margin-top: 7%; "> &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Height="30px"  Text="Add New" ForeColor="white" BackColor="brown" BorderColor="brown" /></button>
-                        </ItemTemplate>
+                        <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource2" Height="10px" DataKeyNames="LoanID">
+                            <InsertItemTemplate>
+                                CopyID:
+                                <asp:DropDownList ID="CopyIDDropDownList3" class="form-control" runat="server" Text='<%# Bind("CopyID") %>' DataSourceID="SqlDataSource3" DataTextField="CopyID" DataValueField="CopyID"></asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [CopyID] FROM [DVD_Copy]"></asp:SqlDataSource>
+                                <br />
+                                MemberID:
+                                <asp:DropDownList ID="DropDownList3" class="form-control" runat="server" Text='<%# Bind("MemberID") %>' DataSourceID="SqlDataSource4" DataTextField="MemberID" DataValueField="MemberID"></asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [MemberID] FROM [Member]"></asp:SqlDataSource>
+                                <br />
+                                LoanTypeID:
+                                <asp:DropDownList ID="DropDownList4" class="form-control" runat="server" Text='<%# Bind("LoanTypeID") %>' DataSourceID="SqlDataSource5" DataTextField="LoanTypeID" DataValueField="LoanTypeID"></asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [LoanTypeID] FROM [LoanType]"></asp:SqlDataSource>
+                                <br />
+                                IssuedDate:
+                                <asp:TextBox ID="IssuedDateTextBox" class="form-control" TextMode="Date"  runat="server" Text='<%# Bind("IssuedDate") %>' />
+                                <br />
+                                DueDate:
+                                <asp:TextBox ID="DueDateTextBox" class="form-control" runat="server" TextMode="Date" Text='<%# Bind("DueDate") %>' />
+                                <br />
+                                ReturnedDate:
+                                <asp:TextBox ID="ReturnedDateTextBox" class="form-control" runat="server" TextMode="Date" Text='<%# Bind("ReturnedDate") %>' />
+                                <br />
+                                TotalDays:
+                                <asp:TextBox ID="TotalDaysTextBox" class="form-control" runat="server" Text='<%# Bind("TotalDays") %>' />
+                                <br />
+                                <div class="crudBtn" style="margin-top: 4%;">
+                                    <button style="background-color: green; border-color: green; width:73px; text-align: center; vertical-align:middle">
+                                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" ForeColor="White" Height="30px" OnClick="InsertButton_Click" />
+                                    </button>
+                                    <button style="background-color: red; margin-left:10px; border-color: red; text-align: center; vertical-align:middle;">
+                                        &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server"  CausesValidation="False" CommandName="Cancel" Text="Cancel" ForeColor="White" Height="30px" />
+                                    </button>
+                                </div>
+                            </InsertItemTemplate>
+                            <ItemTemplate>
+                                <button style="background-color: red; border-color: red;">
+                                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Add New" BackColor="Red" ForeColor="White" BorderColor="Red" width="75px" Height="30px" />
+                                </button>
+                            </ItemTemplate>
                     </asp:FormView>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" DeleteCommand="DELETE FROM [Loan] WHERE [LoanID] = @LoanID" InsertCommand="INSERT INTO [Loan] ([CopyID], [MemberID], [LoanTypeID], [IssuedDate], [DueDate], [ReturnedDate], [TotalDays]) VALUES (@CopyID, @MemberID, @LoanTypeID, @IssuedDate, @DueDate, @ReturnedDate, @TotalDays)" SelectCommand="SELECT * FROM [Loan]" UpdateCommand="UPDATE [Loan] SET [CopyID] = @CopyID, [MemberID] = @MemberID, [LoanTypeID] = @LoanTypeID, [IssuedDate] = @IssuedDate, [DueDate] = @DueDate, [ReturnedDate] = @ReturnedDate, [TotalDays] = @TotalDays WHERE [LoanID] = @LoanID">
+                            <DeleteParameters>
+                                <asp:Parameter Name="LoanID" Type="Int64" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="CopyID" Type="Int64" />
+                                <asp:Parameter Name="MemberID" Type="Int64" />
+                                <asp:Parameter Name="LoanTypeID" Type="Int64" />
+                                <asp:Parameter DbType="Date" Name="IssuedDate" />
+                                <asp:Parameter DbType="Date" Name="DueDate" />
+                                <asp:Parameter DbType="Date" Name="ReturnedDate" />
+                                <asp:Parameter Name="TotalDays" Type="Int32" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="CopyID" Type="Int64" />
+                                <asp:Parameter Name="MemberID" Type="Int64" />
+                                <asp:Parameter Name="LoanTypeID" Type="Int64" />
+                                <asp:Parameter DbType="Date" Name="IssuedDate" />
+                                <asp:Parameter DbType="Date" Name="DueDate" />
+                                <asp:Parameter DbType="Date" Name="ReturnedDate" />
+                                <asp:Parameter Name="TotalDays" Type="Int32" />
+                                <asp:Parameter Name="LoanID" Type="Int64" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
                     </div>
                 </div>
                 </div>

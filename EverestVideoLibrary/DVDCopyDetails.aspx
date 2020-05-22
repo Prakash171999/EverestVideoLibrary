@@ -22,6 +22,10 @@
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [CopyID], [IsOnLoan] FROM [DVD_Copy]"></asp:SqlDataSource>
+                    <div class="memberID-dropdown" style="margin-top: 30px; width: 35%;">
+                        Select DVD CopyID:<asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource2" DataTextField="CopyID" DataValueField="CopyID"></asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [CopyID] FROM [DVD_Copy]"></asp:SqlDataSource>
+                    </div>
                 </div>
             </div>
         </div>

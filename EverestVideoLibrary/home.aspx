@@ -61,6 +61,7 @@
     <form id="form1" runat="server" style="padding-top: initial " >
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container-fluid">
+             <div class="table-wrapper">
                 <div class="header" style="height: 75px; ">
                 <div class="logo"> 
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/logoEVL.png" Height="70px" Width="60px"/>
@@ -72,12 +73,12 @@
                 </div>
             </div>
                      
-            
+             <div class="column col-6" style="margin-left: -3%;">
             <div class="table1" style="margin-left: 12%;">
                 <div class="table-title1" style="margin-bottom: 3%; font-family:Georgia;">
                     <asp:Label ID="Label1" runat="server" Text="Search DVD Titles"></asp:Label>
                 </div>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ActorID" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#999999" BorderWidth="1px" CellPadding="3" GridLines="Vertical" BorderStyle="None" style="margin-top: 0px">
+                <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover"  AutoGenerateColumns="False" DataKeyNames="ActorID" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#999999" BorderWidth="1px" CellPadding="3" GridLines="Vertical" BorderStyle="None" style="margin-top: 0px">
                     <AlternatingRowStyle BackColor="#DCDCDC" />
                     <Columns>
                         <asp:BoundField DataField="ActorID" HeaderText="ActorID" InsertVisible="False" ReadOnly="True" SortExpression="ActorID" HeaderStyle-Width="80px"/>
@@ -94,7 +95,7 @@
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#000065" />
                 </asp:GridView>
-                <asp:DropDownList ID="DropDownList1" style="margin-top:3%; " runat="server" DataSourceID="SqlDataSource2" DataTextField="Actor_Lname" DataValueField="Actor_Lname"  Width="125px" Font-Bold="False" Font-Size="Large"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownList1" CSSClass="form-control" style="margin-top:3%; " runat="server" DataSourceID="SqlDataSource2" DataTextField="Actor_Lname" DataValueField="Actor_Lname"  Width="125px" Font-Bold="False" Font-Size="Large"></asp:DropDownList>
                                 
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [Actor_Lname] FROM [Actor]"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [ActorID], [Actor_Fname], [Actor_Lname] FROM [Actor]"></asp:SqlDataSource>
@@ -121,10 +122,12 @@
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#000065" />
                 </asp:GridView>
-                <asp:DropDownList ID="DropDownList2" style="margin-top:3%; height: 27px;" runat="server" DataSourceID="SqlDataSource4" DataTextField="Actor_Lname" DataValueField="Actor_Lname" Width="125px" Font-Size="Large"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownList2" CSSClass="form-control" style="margin-top:3%; height: 27px;" runat="server" DataSourceID="SqlDataSource4" DataTextField="Actor_Lname" DataValueField="Actor_Lname" Width="125px" Font-Size="Large"></asp:DropDownList>
                 
                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [Actor_Lname] FROM [Actor]"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT * FROM [Actor]"></asp:SqlDataSource>
+            </div>
+            </div>
             </div>
             </div>
             <br/><br />
