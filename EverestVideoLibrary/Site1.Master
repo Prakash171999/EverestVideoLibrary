@@ -65,6 +65,9 @@
                         </li>
                     </ul>
                 </li>
+                 <li>
+                    <a href="ManageDVDBooking.aspx">Manage DVD Booking</a>
+                 </li>
             </ul>
             <div class="logoutBtn" style="margin-left:4%">
             <a><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/logout.png" Height="25px" OnClick="ImageButton1_Click" />
