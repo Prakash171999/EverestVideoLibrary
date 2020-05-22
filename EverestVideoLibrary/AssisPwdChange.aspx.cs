@@ -13,5 +13,16 @@ namespace EverestVideoLibrary
         {
 
         }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+            var newPwd = NewPwd.ToString();
+            var PwdConfirm = ConfirmPwd.ToString();
+
+            if(newPwd ==  PwdConfirm)
+            {
+
+            }
+        }
     }
 }

@@ -93,17 +93,17 @@
                                 <asp:TextBox ID="TotalDaysTextBox" class="form-control" runat="server" Text='<%# Bind("TotalDays") %>' />
                                 <br />
                                 <div class="crudBtn" style="margin-top: 4%;">
-                                    <button style="background-color: green; border-color: green; width:73px; text-align: center; vertical-align:middle">
-                                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" ForeColor="White" Height="30px" OnClick="InsertButton_Click" />
+                                    <button style="background-color: #000046; border-color: #000046; width:73px; text-align: center; vertical-align:middle">
+                                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" ForeColor="White" Height="30px" OnClick="InsertButton_Click" Width="37px" />
                                     </button>
-                                    <button style="background-color: red; margin-left:10px; border-color: red; text-align: center; vertical-align:middle;">
+                                    <button style="background-color: maroon; margin-left:10px; border-color: maroon; text-align: center; vertical-align:middle;">
                                         &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server"  CausesValidation="False" CommandName="Cancel" Text="Cancel" ForeColor="White" Height="30px" />
                                     </button>
                                 </div>
                             </InsertItemTemplate>
                             <ItemTemplate>
-                                <button style="background-color: red; border-color: red;">
-                                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Add New" BackColor="Red" ForeColor="White" BorderColor="Red" width="75px" Height="30px" />
+                                <button style="background-color: maroon; border-color: maroon;">
+                                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Add New" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="75px" Height="30px" />
                                 </button>
                             </ItemTemplate>
                     </asp:FormView>
