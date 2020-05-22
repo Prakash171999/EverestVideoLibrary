@@ -5,12 +5,11 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">Manage DVD Copies</h4>
                 <div class="column col-6" style="margin-left: -3%;">
-                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="DVD_ID" DataSourceID="SqlDataSource1" GridLines="Vertical">
+                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="CopyID" DataSourceID="SqlDataSource1" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
-                            <asp:BoundField DataField="DVD_ID" HeaderText="DVD_ID" InsertVisible="False" ReadOnly="True" SortExpression="DVD_ID" />
+                            <asp:BoundField DataField="CopyID" HeaderText="CopyID" InsertVisible="False" ReadOnly="True" SortExpression="CopyID" />
                             <asp:BoundField DataField="DVD_title" HeaderText="DVD_title" SortExpression="DVD_title" />
-                            <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
                             <asp:CommandField ButtonType="Button" HeaderText="Action" ShowDeleteButton="True" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -23,7 +22,7 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_ID], [DVD_title], [Category] FROM [DVD]" DeleteCommand="DELETE FROM [DVD] WHERE [DVD_ID] = @DVD_ID" InsertCommand="INSERT INTO [DVD] ([DVD_title], [Category]) VALUES (@DVD_title, @Category)" UpdateCommand="UPDATE [DVD] SET [DVD_title] = @DVD_title, [Category] = @Category WHERE [DVD_ID] = @DVD_ID">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD_Copy.CopyID, DVD.DVD_title FROM DVD INNER JOIN DVD_Copy ON DVD.DVD_ID = DVD_Copy.DVD_ID WHERE (DVD_Copy.CopyID NOT IN (SELECT CopyID FROM Loan WHERE (ReturnedDate IS NULL)))" DeleteCommand="DELETE FROM [DVD] WHERE [DVD_ID] = @DVD_ID" InsertCommand="INSERT INTO [DVD] ([DVD_title], [Category]) VALUES (@DVD_title, @Category)" UpdateCommand="UPDATE [DVD] SET [DVD_title] = @DVD_title, [Category] = @Category WHERE [DVD_ID] = @DVD_ID">
                         <DeleteParameters>
                             <asp:Parameter Name="DVD_ID" Type="Int64" />
                         </DeleteParameters>

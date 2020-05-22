@@ -4,8 +4,8 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <h4 style="margin-top:2%; margin-left: -4%;">Manage DVD Booking</h4>
-                <div class="column col-6" style="margin-left: -5.5%; top: 2px; left: 3px; height: 1500px;">
-                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <div class="column col-6" style="margin-left: -5.5%; top: 2px; left: 3px; height: 1550px;">
+                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
                             <asp:BoundField DataField="LoanID" HeaderText="LoanID" InsertVisible="False" ReadOnly="True" SortExpression="LoanID" />
@@ -33,7 +33,8 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Loan.LoanID, DVD_Copy.CopyID, Member.MemberID, LoanType.LoanTypeID, LoanType.LoanType, LoanType.LoanDuration AS TypeSpan, Loan.IssuedDate, Loan.DueDate, Loan.ReturnedDate, Loan.TotalDays AS Days, (SELECT CASE WHEN (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) &lt; 0 THEN 0 ELSE (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) END AS Expr1) AS Fine FROM Member INNER JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN DVD_Copy ON Loan.CopyID = DVD_Copy.CopyID INNER JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID INNER JOIN LoanType ON LoanType.LoanTypeID = Loan.LoanTypeID" DeleteCommand="DELETE FROM [DVD] WHERE [DVD_ID] = @DVD_ID" InsertCommand="INSERT INTO [DVD] ([DVD_title], [Category], [ReleaseDate], [StandardCharge]) VALUES (@DVD_title, @Category, @ReleaseDate, @StandardCharge)" UpdateCommand="UPDATE [DVD] SET [DVD_title] = @DVD_title, [Category] = @Category, [ReleaseDate] = @ReleaseDate, [StandardCharge] = @StandardCharge WHERE [DVD_ID] = @DVD_ID">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Loan.LoanID, DVD_Copy.CopyID, Member.MemberID, LoanType.LoanTypeID, LoanType.LoanType, LoanType.LoanDuration AS TypeSpan, Loan.IssuedDate, Loan.DueDate, Loan.ReturnedDate, Loan.TotalDays AS Days, (SELECT CASE WHEN (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) &lt; 0 THEN 0 ELSE (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) END AS Expr1) AS Fine FROM Member INNER JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN DVD_Copy ON Loan.CopyID = DVD_Copy.CopyID INNER JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID INNER JOIN LoanType ON LoanType.LoanTypeID = Loan.LoanTypeID" DeleteCommand="DELETE FROM [DVD] WHERE [DVD_ID] = @DVD_ID" InsertCommand="INSERT INTO [DVD] ([DVD_title], [Category], [ReleaseDate], [StandardCharge]) VALUES (@DVD_title, @Category, @ReleaseDate, @StandardCharge)" UpdateCommand="UPDATE [DVD] SET [DVD_title] = @DVD_title, [Category] = @Category, [ReleaseDate] = @ReleaseDate, [StandardCharge] = @StandardCharge WHERE [DVD_ID] = @DVD_ID
+">
                         <DeleteParameters>
                             <asp:Parameter Name="DVD_ID" Type="Int64" />
                         </DeleteParameters>
@@ -44,11 +45,11 @@
                             <asp:Parameter Name="StandardCharge" Type="Int32" />
                         </InsertParameters>
                         <UpdateParameters>
-                            <asp:Parameter Name="DVD_title" Type="String" />
-                            <asp:Parameter Name="Category" Type="String" />
-                            <asp:Parameter DbType="Date" Name="ReleaseDate" />
-                            <asp:Parameter Name="StandardCharge" Type="Int32" />
-                            <asp:Parameter Name="DVD_ID" Type="Int64" />
+                            <asp:Parameter Name="DVD_title" />
+                            <asp:Parameter Name="Category" />
+                            <asp:Parameter Name="ReleaseDate" />
+                            <asp:Parameter Name="StandardCharge" />
+                            <asp:Parameter Name="DVD_ID" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
                     <div class="check-restriction" style="margin-top: 5%">

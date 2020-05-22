@@ -4,21 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace EverestVideoLibrary
 {
-    public partial class WebForm6 : System.Web.UI.Page
+    public partial class DVDCopiesNotOnLoan : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void InsertButton_Click(object sender, EventArgs e)
-        {
-           
         }
     }
 }

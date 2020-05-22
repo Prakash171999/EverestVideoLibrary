@@ -5,11 +5,14 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">DVD Copy Details</h4>
                 <div class="column col-6" style="margin-left: -3%;">
-                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover"  runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="CopyID" DataSourceID="SqlDataSource1" GridLines="Vertical">
+                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover"  runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="LoanID" DataSourceID="SqlDataSource1" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
-                            <asp:BoundField DataField="CopyID" HeaderText="CopyID" InsertVisible="False" ReadOnly="True" SortExpression="CopyID" />
-                            <asp:CheckBoxField DataField="IsOnLoan" HeaderText="IsOnLoan" SortExpression="IsOnLoan" />
+                            <asp:BoundField DataField="LoanID" HeaderText="LoanID" InsertVisible="False" ReadOnly="True" SortExpression="LoanID" />
+                            <asp:BoundField DataField="MemberID" HeaderText="MemberID" SortExpression="MemberID" />
+                            <asp:BoundField DataField="IssuedDate" HeaderText="IssuedDate" SortExpression="IssuedDate" />
+                            <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" />
+                            <asp:BoundField DataField="ReturnedDate" HeaderText="ReturnedDate" SortExpression="ReturnedDate" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />
@@ -21,7 +24,7 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [CopyID], [IsOnLoan] FROM [DVD_Copy]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [LoanID], [MemberID], [IssuedDate], [DueDate], [ReturnedDate] FROM [Loan]"></asp:SqlDataSource>
                     <div class="memberID-dropdown" style="margin-top: 30px; width: 35%;">
                         Select DVD CopyID:<asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource2" DataTextField="CopyID" DataValueField="CopyID"></asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [CopyID] FROM [DVD_Copy]"></asp:SqlDataSource>
