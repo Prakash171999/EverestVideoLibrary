@@ -24,12 +24,13 @@ namespace EverestVideoLibrary
 
             if(newPwd ==  PwdConfirm)
             {
-                string userID = Session["userID"].ToString();
+                int userID = Convert.ToInt32(Session["userID"].ToString());
+                
 
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "UPDATE Users SET password ='" + NewPwd.Text + "' + WHERE userid ='"+ userID +"'";
+                cmd.CommandText = "UPDATE Users SET password ='" + NewPwd.Text + "' WHERE userid ='"+ userID +"'";
                 cmd.ExecuteNonQuery();
                 conn.Close();
 

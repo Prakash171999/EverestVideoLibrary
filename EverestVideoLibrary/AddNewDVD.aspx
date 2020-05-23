@@ -54,5 +54,8 @@
                 </div>
             </div>
         </div>
+         <div class="BtnDVDAddForm">
+             <asp:Button ID="Button1" runat="server" Text="Add New DVD" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="75px" Height="30px" OnClick="Button1_Click" />
+         </div>
     </div>
 </asp:Content>

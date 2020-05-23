@@ -80,10 +80,14 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\main.min.css" />
+    <Content Include="DVDAddForm.aspx" />
     <Content Include="DVDCopiesNotOnLoan.aspx" />
     <Content Include="DVDCopyLoan.aspx" />
     <Content Include="DVDdetails.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="js\global.js" />
     <Content Include="logout.png" />
     <Content Include="ManageUsers.aspx" />
     <Content Include="MemberBorrowedDVDs.aspx" />
@@ -194,6 +198,13 @@
     </Compile>
     <Compile Include="AssisPwdChange.aspx.designer.cs">
       <DependentUpon>AssisPwdChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DVDAddForm.aspx.cs">
+      <DependentUpon>DVDAddForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DVDAddForm.aspx.designer.cs">
+      <DependentUpon>DVDAddForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="DVDCopiesNotOnLoan.aspx.cs">
       <DependentUpon>DVDCopiesNotOnLoan.aspx</DependentUpon>
@@ -307,6 +318,20 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
     <Content Include="home.aspx" />
+    <Content Include="vendor\datepicker\daterangepicker.css" />
+    <Content Include="vendor\datepicker\daterangepicker.js" />
+    <Content Include="vendor\datepicker\moment.min.js" />
+    <Content Include="vendor\font-awesome-4.7\css\font-awesome.css" />
+    <Content Include="vendor\font-awesome-4.7\css\font-awesome.min.css" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.svg" />
+    <Content Include="vendor\font-awesome-4.7\HELP-US-OUT.txt" />
+    <Content Include="vendor\jquery\jquery.js" />
+    <Content Include="vendor\jquery\jquery.min.js" />
+    <Content Include="vendor\mdi-font\css\material-design-iconic-font.css" />
+    <Content Include="vendor\mdi-font\css\material-design-iconic-font.min.css" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="vendor\select2\select2.min.css" />
+    <Content Include="vendor\select2\select2.min.js" />
     <Content Include="web.config" />
     <Content Include="Site1.Master" />
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -325,6 +350,15 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff2" />
+    <Content Include="vendor\font-awesome-4.7\fonts\FontAwesome.otf" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
