@@ -4,7 +4,7 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <h4 style="margin-top:2%; margin-left: -4%;">Manage DVD Booking</h4>
-                <div class="column col-6" style="margin-left: -5.5%; top: 2px; left: 3px; height: 1550px;">
+                <div class="column col-6" style="margin-left: -5.5%; top: 2px; left: 3px; height: 1450px;">
                     <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -59,10 +59,7 @@
                         <h6>DVD Title: <asp:DropDownList CSSClass="form-control" ID="DropDownList2" runat="server" DataSourceID="SqlDVDTitle" DataTextField="DVD_title" DataValueField="DVD_title"></asp:DropDownList></h6>
                         <asp:SqlDataSource ID="SqlDVDTitle" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_title] FROM [DVD]"></asp:SqlDataSource>
                         <div class="checkBtn" style="margin-top: 5%;">
-                            <asp:Button ID="Button1" runat="server" Text="Check Restriction" BackColor="#000046" ForeColor="white" Height="38px" Width="153px" BorderColor="#000046" />
-
-                        &nbsp;&nbsp;
-
+                            <asp:Button ID="Button1" runat="server" Text="Check Restriction" BackColor="#000046" ForeColor="white" Height="38px" Width="153px" BorderColor="#000046" />&nbsp;&nbsp;
                         </div>
                     </div>
                     <div class="addBookDetails" style="margin-top:4%;">
@@ -82,15 +79,19 @@
                                 <br />
                                 IssuedDate:
                                 <asp:TextBox ID="IssuedDateTextBox" class="form-control" TextMode="Date"  runat="server" Text='<%# Bind("IssuedDate") %>' />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="IssuedDateTextBox" ForeColor="Red" runat="server" ErrorMessage="Enter the issued date!"></asp:RequiredFieldValidator>
                                 <br />
                                 DueDate:
                                 <asp:TextBox ID="DueDateTextBox" class="form-control" runat="server" TextMode="Date" Text='<%# Bind("DueDate") %>' />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="DueDateTextBox" ForeColor="Red" runat="server" ErrorMessage="Enter the due date!"></asp:RequiredFieldValidator>
                                 <br />
                                 ReturnedDate:
                                 <asp:TextBox ID="ReturnedDateTextBox" class="form-control" runat="server" TextMode="Date" Text='<%# Bind("ReturnedDate") %>' />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="ReturnedDateTextBox" ForeColor="Red" runat="server" ErrorMessage="Enter the returned date!"></asp:RequiredFieldValidator>
                                 <br />
                                 TotalDays:
                                 <asp:TextBox ID="TotalDaysTextBox" class="form-control" runat="server" Text='<%# Bind("TotalDays") %>' />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TotalDaysTextBox" ForeColor="Red" runat="server" ErrorMessage="Enter the total days!"></asp:RequiredFieldValidator>
                                 <br />
                                 <div class="crudBtn" style="margin-top: 4%;">
                                     <button style="background-color: #000046; border-color: #000046; width:73px; text-align: center; vertical-align:middle">

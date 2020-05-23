@@ -42,5 +42,10 @@ namespace EverestVideoLibrary
         {
             Response.Redirect("AssisPwdChange.aspx");
         }
+
+        protected void ManageUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ManageUsers.aspx");
+        }
     }
 }

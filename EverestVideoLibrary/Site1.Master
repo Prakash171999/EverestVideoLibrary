@@ -72,9 +72,12 @@
                  <li>
                     <a href="DVDCopiesNotOnLoan.aspx">DVD Copies Not On Loan</a>
                  </li>
+                 <li>
+                    <a href="AddNewDVD.aspx">Add New DVD</a>
+                 </li>
             </ul>
             <div style="margin-left: 5%; margin-top: -10%;">
-              <asp:Button ID="ManageUser" runat="server" Text="Manage Users" BackColor="Maroon" BorderColor="Maroon" ForeColor="white" Height="37px" Width="193px"  />
+              <asp:Button ID="ManageUser" runat="server" Text="Manage Users" BackColor="Maroon" BorderColor="Maroon" ForeColor="white" Height="37px" Width="193px" OnClick="ManageUser_Click"  />
             </div>
             <div style="margin-left: 5%; margin-top: -10%;">
                 <asp:Button ID="AssistanceChangePassword" runat="server" Text="Change Password" BackColor="Maroon" BorderColor="Maroon" ForeColor="white" Height="37px" Width="193px" OnClick="AssistanceChangePassword_Click" />

@@ -39,6 +39,7 @@ namespace EverestVideoLibrary
             {
                 if(datatable.Rows.Count > 0)
                 {
+                    Session["userID"] = dr["userid"].ToString();
                     Session["username"] = dr["username"].ToString();
                     Session["usertype"] = dr["usertype"].ToString();
                     Response.Redirect("Dashboard.aspx");
