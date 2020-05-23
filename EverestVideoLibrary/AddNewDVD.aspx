@@ -3,7 +3,7 @@
      <div class="container-fluid">
         <div class="table-wrapper">
             <div class="table-title">
-                <h4 style="margin-top:4%; margin-left: -1.5%;">List of member who didn't borrowed DVD</h4>
+                <h4 style="margin-top:4%; margin-left: -1.5%;">List of DVDs</h4>
                 <div class="column col-6" style="margin-left: -3%;">
                     <asp:GridView  runat="server"  CssClass="table table-striped table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="DVD_ID" DataSourceID="sqlNewDVD" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
@@ -55,7 +55,7 @@
             </div>
         </div>
          <div class="BtnDVDAddForm">
-             <asp:Button ID="Button1" runat="server" Text="Add New DVD" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="75px" Height="30px" OnClick="Button1_Click" />
+             <asp:Button ID="Button1" runat="server" Text="Add New DVD" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="130px" Height="35px" OnClick="Button1_Click" />
          </div>
     </div>
 </asp:Content>
