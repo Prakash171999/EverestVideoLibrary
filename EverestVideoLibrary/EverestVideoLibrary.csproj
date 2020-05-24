@@ -80,14 +80,32 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="copydvdlist.aspx" />
     <Content Include="DVDAddForm.aspx" />
     <Content Include="DVDCopiesNotOnLoan.aspx" />
     <Content Include="DVDCopyLoan.aspx" />
     <Content Include="DVDdetails.aspx" />
+    <Content Include="dvdlist.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="homepage.aspx" />
+    <Content Include="logo.png" />
     <Content Include="logout.png" />
     <Content Include="ManageUsers.aspx" />
     <Content Include="MemberBorrowedDVDs.aspx" />
+    <Content Include="slideIMG\avatar1.jpg" />
+    <Content Include="slideIMG\avenger1.jpg" />
+    <Content Include="slideIMG\avenger2.jpg" />
+    <Content Include="slideIMG\avenger3.jpg" />
+    <Content Include="slideIMG\avenger4.jpg" />
+    <Content Include="slideIMG\avenger5.jpg" />
+    <Content Include="slideIMG\extraction.jpg" />
+    <Content Include="slideIMG\Extraction2.jpg" />
+    <Content Include="slideIMG\justice league.jpg" />
+    <Content Include="slideIMG\kabir1.jpg" />
+    <Content Include="slideIMG\kabir2.jpg" />
+    <Content Include="slideIMG\moana.jpeg" />
+    <Content Include="slideIMG\spiderman1.jpg" />
+    <Content Include="slideIMG\spiderman2.jpg" />
     <Content Include="user.png" />
     <Content Include="logoEVL.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -196,6 +214,13 @@
     <Compile Include="AssisPwdChange.aspx.designer.cs">
       <DependentUpon>AssisPwdChange.aspx</DependentUpon>
     </Compile>
+    <Compile Include="copydvdlist.aspx.cs">
+      <DependentUpon>copydvdlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="copydvdlist.aspx.designer.cs">
+      <DependentUpon>copydvdlist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DVDAddForm.aspx.cs">
       <DependentUpon>DVDAddForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,6 +249,13 @@
     <Compile Include="DVDdetails.aspx.designer.cs">
       <DependentUpon>DVDdetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="dvdlist.aspx.cs">
+      <DependentUpon>dvdlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dvdlist.aspx.designer.cs">
+      <DependentUpon>dvdlist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,6 +265,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="homepage.aspx.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homepage.aspx.designer.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
@@ -305,6 +344,13 @@
     <Compile Include="AddNewDVD.aspx.designer.cs">
       <DependentUpon>AddNewDVD.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site2.Master.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site2.Master.designer.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />
@@ -333,6 +379,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Site2.Master" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
