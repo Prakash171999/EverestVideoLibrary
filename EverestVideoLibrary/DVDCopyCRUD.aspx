@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
         <div class="table-wrapper">
-            <div class="table-title">
+            <div class="table-title" style="margin-left: 5%;">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">Manage DVD Copies</h4>
                 <div class="column col-6" style="margin-left: -3%;">
                     <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="CopyID" DataSourceID="SqlDataSource1" GridLines="Vertical">
@@ -10,7 +10,9 @@
                         <Columns>
                             <asp:BoundField DataField="CopyID" HeaderText="CopyID" InsertVisible="False" ReadOnly="True" SortExpression="CopyID" />
                             <asp:BoundField DataField="DVD_title" HeaderText="DVD_title" SortExpression="DVD_title" />
-                            <asp:CommandField ButtonType="Button" HeaderText="Action" ShowDeleteButton="True" />
+                            <asp:CommandField ButtonType="Button" HeaderText="Actions" ShowDeleteButton="True">
+                            <ControlStyle BackColor="#000046" BorderColor="#000046" ForeColor="White" />
+                            </asp:CommandField>
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />

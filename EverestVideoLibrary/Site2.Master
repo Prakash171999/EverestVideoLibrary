@@ -70,15 +70,15 @@
                             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" style="color:white;font-family:Palatino" " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-size: 17px;" >
                                     <a class="dropdown-item" href="dvdlist.aspx" style="font-family:Palatino" >DVD List</a> <a class="dropdown-item" href="copydvdlist.aspx" style="font-family:Palatino">DVD Copy List</a>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="loginBtn" style="margin-left: 8px;font-family:Palatino">
-                           <asp:Button ID="loginBtn" runat="server" Text="Login" BorderStyle="None" BackColor="Maroon" BorderColor="Maroon" Font-Size="19px" ForeColor="WHITE" Width="87px" Height="37px" />
+   
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="loginBtn" style="margin-left: 8px;font-family:Palatino">
+                                <asp:Button ID="loginBtn" runat="server" Text="Login" BorderStyle="None" BackColor="Maroon" BorderColor="Maroon" Font-Size="19px" ForeColor="WHITE" Width="87px" Height="37px" OnClick="loginBtn_Click" />
+                            </div>
                         </div>
                     </div>
-                    </div>
-                    
                 </nav>
                 <asp:ContentPlaceHolder ID="MainContent2" runat="server">
                 </asp:ContentPlaceHolder>
@@ -88,17 +88,15 @@
                 <footer class="page-footer font-small mdb-color pt-4" style="font-family:Palatino; background-color: #1a202e;  margin-top: 0px;">
 
                   <!-- Footer Links -->
-                  <div class="container text-center text-md-left">
+                    <div class="container text-center text-md-left">
 
                     <!-- Footer links -->
-                    <div class="row text-center text-md-left mt-3 pb-3">
+                        <div class="row text-center text-md-left mt-3 pb-3">
 
                       <!-- Grid column -->
                       <div style="color: white" class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Everest Video Library</h6>
-                        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                          consectetur
-                          adipisicing elit.</p>
+                         <h6 class="text-uppercase mb-4 font-weight-bold">Everest Video Library</h6>
+                          <p>One of the leading store with huge collection of DVD's. Making it easy to loan DVD's as per the member type.</p>
                       </div>
                       <!-- Grid column -->
 
@@ -139,11 +137,11 @@
                       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold" style="color: white">Contact</h6>
                         <p style="color: white">
-                          <i class="fas fa-home mr-3" ></i> New York, NY 10012, US</p>
+                          <i class="fas fa-home mr-3" ></i> Kathmandu, New Baneshwar</p>
                         <p style="color: white">
-                          <i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+                          <i class="fas fa-envelope mr-3"></i> Everestvideolibrary@gmail.com</p>
                         <p style="color: white">
-                          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                          <i class="fas fa-phone mr-3"></i> 9800125521</p>
                         <p style="color: white">
                           <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
                       </div>

@@ -14,7 +14,7 @@
                                     <asp:SqlDataSource ID="sqlMember" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT COUNT(*) AS Expr1 FROM Member"></asp:SqlDataSource>
                                 </h2>
                                 <h5 class="text-uppercase" style="margin-left:5px;">Members</h5>
-                                <a href="" style="margin-left:5px; margin-bottom: 10px; font-size:14px;">View Members</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                                     <asp:SqlDataSource ID="sqlDVD" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT COUNT(*) AS Expr1 FROM DVD"></asp:SqlDataSource>
                                 </h2>
                                 <h6 class="text-uppercase" style="margin-left:10px; margin-top:5px;">DVD's</h6>
-                                <a href="" style="margin-left:10px; margin-bottom:5px;"">View DVD's</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                     <asp:SqlDataSource ID="sqlActor" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT COUNT(*) AS Expr1 FROM Actor"></asp:SqlDataSource>
                                 </h2>
                                 <h6 class="text-uppercase" style="margin-left:10px; margin-top:5px;">Actors</h6>
-                                <a href="" style="margin-left: 10px; margin-bottom: 5px;">View Staff</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                                     <asp:SqlDataSource ID="sqlProducer" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT COUNT(*) AS Expr1 FROM Producer"></asp:SqlDataSource>
                                 </h2>
                                 <h6 class="text-uppercase" style="margin-left:10px; margin-top:5px;">Producers</h6>
-                                <a href="" style="margin-left:10px; margin-bottom:5px;"">View Producers</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                     <asp:SqlDataSource ID="sqlStudio" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT COUNT(*) AS Expr1 FROM Studio"></asp:SqlDataSource>
                                 </h2>
                                 <h6 class="text-uppercase" style="margin-left:10px; margin-top:5px;">Studio</h6>
-                                <a href="" style="margin-left:10px; margin-bottom:5px;"">View Studio</a>
+                               
                             </div>
                         </div>
                     </div>

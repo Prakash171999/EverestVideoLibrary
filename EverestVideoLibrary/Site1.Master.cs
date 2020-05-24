@@ -13,7 +13,7 @@ namespace EverestVideoLibrary
         {
             if (Session["username"] == null)
             {
-                Response.Redirect("home.aspx");
+                Response.Redirect("login.aspx");
             }
 
             var usertype = Session["usertype"];
@@ -35,7 +35,7 @@ namespace EverestVideoLibrary
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
             Session.Clear();
-            Response.Redirect("home.aspx");
+            Response.Redirect("login.aspx");
         }
 
         protected void AssistanceChangePassword_Click(object sender, EventArgs e)
