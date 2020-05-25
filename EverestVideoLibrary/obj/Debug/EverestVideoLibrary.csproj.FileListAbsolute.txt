@@ -57,3 +57,4 @@ D:\.NET\EverestVideoLibrary\EverestVideoLibrary\obj\Debug\EverestVideoLibrary.dl
 D:\.NET\EverestVideoLibrary\EverestVideoLibrary\obj\Debug\EverestVideoLibrary.pdb
 D:\.NET\EverestVideoLibrary\EverestVideoLibrary\bin\EverestVideoLibrary.dll.config
 D:\.NET\EverestVideoLibrary\EverestVideoLibrary\bin\AjaxControlToolkit.dll
+D:\.NET\EverestVideoLibrary\EverestVideoLibrary\bin\Tulpep.NotificationWindow.dll
