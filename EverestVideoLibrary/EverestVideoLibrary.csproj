@@ -90,6 +90,7 @@
     <Content Include="homepage.aspx" />
     <Content Include="logo.png" />
     <Content Include="logout.png" />
+    <Content Include="ManageReturnedDVD.aspx" />
     <Content Include="ManageUsers.aspx" />
     <Content Include="MemberBorrowedDVDs.aspx" />
     <Content Include="slideIMG\avatar1.jpg" />
@@ -260,19 +261,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="home.aspx.designer.cs">
-      <DependentUpon>home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="homepage.aspx.designer.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageReturnedDVD.aspx.cs">
+      <DependentUpon>ManageReturnedDVD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageReturnedDVD.aspx.designer.cs">
+      <DependentUpon>ManageReturnedDVD.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
@@ -368,7 +369,6 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
-    <Content Include="home.aspx" />
     <Content Include="web.config" />
     <Content Include="Site1.Master" />
     <Content Include="Scripts\bootstrap.min.js.map" />

@@ -70,7 +70,10 @@
                     </ul>
                 </li>
                  <li>
-                    <a href="ManageDVDBooking.aspx">Manage DVD Booking</a>
+                    <a href="ManageDVDBooking.aspx">Manage DVD Loan</a>
+                 </li>
+                 <li>
+                    <a href="ManageReturnedDVD.aspx">Manage Returned DVD</a>
                  </li>
                  <li>
                     <a href="DVDCopiesNotOnLoan.aspx">DVD Copies Not On Loan</a>

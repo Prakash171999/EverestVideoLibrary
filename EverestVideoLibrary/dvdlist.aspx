@@ -5,7 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -2%;">DVD Details List</h4>
                 <div class="column col-6" style="margin-left: -3%; margin-top: 2%;">
-                    <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="DVD_ID" DataSourceID="Sqlgridview" GridLines="Vertical">
+                    <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="DVD_ID" DataSourceID="Sqlgridview" GridLines="Vertical" AllowPaging="True" PageSize="5">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
                             <asp:BoundField DataField="DVD_ID" HeaderText="DVD_ID" InsertVisible="False" ReadOnly="True" SortExpression="DVD_ID" />

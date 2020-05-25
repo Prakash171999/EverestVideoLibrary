@@ -5,7 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">List of member who borrowed DVD</h4>
                 <div class="column col-6" style="margin-left: -3%;">
-                    <asp:GridView ID="GridView1"  CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="MemberID" DataSourceID="SqlDataSource1" GridLines="Vertical">
+                    <asp:GridView ID="GridView1"  CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="MemberID" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
                             <asp:BoundField DataField="MemberID" HeaderText="MemberID" InsertVisible="False" ReadOnly="True" SortExpression="MemberID" />
