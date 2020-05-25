@@ -49,7 +49,7 @@
                           </div>
                         </div>
                         <div class="updateBtn" style="margin-left: 18.5em">
-                            <asp:Button ID="Button1" runat="server" Text="Button" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="90px" Height="35px"/>
+                            <asp:Button ID="Button1" runat="server" Text="Update" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="90px" Height="35px"/>
                         </div>
                     </div>
                 </div>
