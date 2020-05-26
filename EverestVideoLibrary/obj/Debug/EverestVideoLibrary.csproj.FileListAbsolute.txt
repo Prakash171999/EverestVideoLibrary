@@ -58,3 +58,4 @@ D:\.NET\EverestVideoLibrary\EverestVideoLibrary\obj\Debug\EverestVideoLibrary.pd
 D:\.NET\EverestVideoLibrary\EverestVideoLibrary\bin\EverestVideoLibrary.dll.config
 D:\.NET\EverestVideoLibrary\EverestVideoLibrary\bin\AjaxControlToolkit.dll
 D:\.NET\EverestVideoLibrary\EverestVideoLibrary\bin\Tulpep.NotificationWindow.dll
+D:\.NET\EverestVideoLibrary\EverestVideoLibrary\bin\Gat.Controls.MessageBox.dll

@@ -19,8 +19,8 @@ namespace EverestVideoLibrary
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            var newPwd = NewPwd.ToString();
-            var PwdConfirm = ConfirmPwd.ToString();
+            var newPwd = NewPwd.Text;
+            var PwdConfirm = ConfirmPwd.Text;
 
             if(newPwd ==  PwdConfirm)
             {

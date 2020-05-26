@@ -11,6 +11,7 @@ namespace EverestVideoLibrary
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["username"] == null)
             {
                 Response.Redirect("login.aspx");
@@ -22,13 +23,14 @@ namespace EverestVideoLibrary
             if (Session["usertype"].ToString() == "Manager")
             {
                 ManageUser.Visible = true;
-                AssistanceChangePassword.Visible = false;
+                AssistanceChangePassword.Visible = false;     
             }
             else
             {
                 ManageUser.Visible = false;
-                AssistanceChangePassword.Visible = true;
+                AssistanceChangePassword.Visible = true;                
             }
+
 
         }
 

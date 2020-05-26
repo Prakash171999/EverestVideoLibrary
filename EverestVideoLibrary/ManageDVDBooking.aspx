@@ -19,9 +19,6 @@
                             <asp:BoundField DataField="ReturnedDate" HeaderText="ReturnedDate" SortExpression="ReturnedDate" />
                             <asp:BoundField DataField="Days" HeaderText="Days" SortExpression="Days" />
                             <asp:BoundField DataField="Fine" HeaderText="Fine" ReadOnly="True" SortExpression="Fine" />
-                            <asp:CommandField ButtonType="Button" HeaderText="Action" ShowEditButton="True" >
-                            <ControlStyle BackColor="#000046" BorderColor="#000046" ForeColor="White" />
-                            </asp:CommandField>
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />
@@ -56,10 +53,10 @@
                         <h5><asp:Label ID="Label1" runat="server" Text="Check Age Restriction"></asp:Label></h5><br />
                         <h6>Member ID: <asp:DropDownList ID="DropDownList1" CSSClass="form-control" runat="server" DataSourceID="SqlMemberID" DataTextField="MemberID" DataValueField="MemberID"></asp:DropDownList></h6>
                         <asp:SqlDataSource ID="SqlMemberID" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [MemberID] FROM [Member]"></asp:SqlDataSource><br />
-                        <h6>DVD Title: <asp:DropDownList CSSClass="form-control" ID="DropDownList2" runat="server" DataSourceID="SqlDVDTitle" DataTextField="DVD_title" DataValueField="DVD_title"></asp:DropDownList></h6>
-                        <asp:SqlDataSource ID="SqlDVDTitle" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_title] FROM [DVD]"></asp:SqlDataSource>
+                        <h6>DVD Title: <asp:DropDownList CSSClass="form-control" ID="DropDownList2" runat="server" DataSourceID="SqlDVDTitle" DataTextField="DVD_title" DataValueField="DVD_ID"></asp:DropDownList></h6>
+                        <asp:SqlDataSource ID="SqlDVDTitle" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_title], [DVD_ID] FROM [DVD]"></asp:SqlDataSource>
                         <div class="checkBtn" style="margin-top: 5%;">
-                            <asp:Button ID="Button1" runat="server" Text="Check Restriction" BackColor="#000046" ForeColor="white" Height="38px" Width="153px" BorderColor="#000046" />&nbsp;&nbsp;
+                            <asp:Button ID="Button1" runat="server" Text="Check Restriction" BackColor="#000046" ForeColor="white" Height="38px" Width="153px" BorderColor="#000046" OnClick="Button1_Click" />&nbsp;&nbsp;
                         </div>
                     </div>
                     <div class="addBookDetails" style="margin-top:4%;">

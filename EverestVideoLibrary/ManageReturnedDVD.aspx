@@ -31,7 +31,7 @@
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Loan.LoanID, DVD_Copy.CopyID, Member.MemberID, LoanType.LoanTypeID, LoanType.LoanType, LoanType.LoanDuration AS TypeSpan, Loan.IssuedDate, Loan.DueDate, Loan.ReturnedDate, Loan.TotalDays AS Days, (SELECT CASE WHEN (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) &lt; 0 THEN 0 ELSE (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) END AS Expr1) AS Fine FROM Member INNER JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN DVD_Copy ON Loan.CopyID = DVD_Copy.CopyID INNER JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID INNER JOIN LoanType ON LoanType.LoanTypeID = Loan.LoanTypeID"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [CopyID] FROM [DVD_Copy]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT LoanID, CopyID FROM Loan WHERE ReturnedDate is null"></asp:SqlDataSource>
                     <div style="margin-left: 5%; margin-top:3%">
                         <h5 style="margin-left: 8em;">
                             <asp:Label ID="Label1" runat="server" Text="Update Returned Date"></asp:Label>
@@ -39,17 +39,23 @@
                         <div class="form-group row" style="margin-top: 5%;">
                           <label for="releasedate" class="col-md-4 col-form-label text-md-right">Copy ID</label>
                           <div class="col-md-6">
-                             <asp:DropDownList ID="DropDownList1" Width="" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="CopyID" DataValueField="CopyID"></asp:DropDownList> 
+                             <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="CopyID" DataValueField="LoanID"></asp:DropDownList> 
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label for="releasedate" class="col-md-4 col-form-label text-md-right">Release Date</label>
+                          <label for="returndate" class="col-md-4 col-form-label text-md-right">Return Date</label>
                           <div class="col-md-6">
-                             <input type="date" id="releasedate" class="form-control" name="releasedate" required >
+                             <input type="date" runat="server" id="returndate" class="form-control" name="returndate" required >
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="totaldays" class="col-md-4 col-form-label text-md-right">Total Days</label>
+                          <div class="col-md-6">
+                             <input type="number" runat="server" id="totaldays" class="form-control" name="totaldays" required >
                           </div>
                         </div>
                         <div class="updateBtn" style="margin-left: 18.5em">
-                            <asp:Button ID="Button1" runat="server" Text="Update" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="90px" Height="35px"/>
+                            <asp:Button ID="Button1" runat="server" Text="Update" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="90px" Height="35px" OnClick="Button1_Click"/>
                         </div>
                     </div>
                 </div>

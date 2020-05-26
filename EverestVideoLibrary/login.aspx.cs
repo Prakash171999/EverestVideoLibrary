@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace EverestVideoLibrary
 {
@@ -35,18 +36,14 @@ namespace EverestVideoLibrary
                 {
                     Session["userID"] = dr["userid"].ToString();
                     Session["username"] = dr["username"].ToString();
-                    Session["usertype"] = dr["usertype"].ToString();
-                    //username.Text = "";
-                    //password.Text = "";
+                    Session["usertype"] = dr["usertype"].ToString();                   
                     Response.Redirect("Dashboard.aspx");
-
+                   
                 }
                 //if (username != dr["username"] || password != dr["password"])
-                else
+                else if (datatable.Rows.Count < 0)
                 {
-                    //loginMsg.Text="Invalid username or password!";
-                    Response.Write("<script>alert('Your text');</script>");
-                    Response.Redirect("homepage.aspx");
+                    MessageBox.Show("Invalid Username or password!");
                 }
             }
             conn.Close();
