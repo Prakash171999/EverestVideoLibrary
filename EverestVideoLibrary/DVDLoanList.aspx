@@ -11,7 +11,7 @@
                         <Columns>
                             <asp:BoundField DataField="DVD_title" HeaderText="DVD_title" SortExpression="DVD_title" />
                             <asp:BoundField DataField="CopyID" HeaderText="CopyID" SortExpression="CopyID" InsertVisible="False" ReadOnly="True" />
-                            <asp:BoundField DataField="Member_Lname" HeaderText="Member_Lname" SortExpression="Member_Lname" />
+                            <asp:BoundField DataField="MemberName" HeaderText="MemberName" SortExpression="MemberName" ReadOnly="True" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />
@@ -23,13 +23,17 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlMemberDVDLoaned" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_title, DVD_Copy.CopyID, Member.Member_Lname FROM DVD JOIN DVD_Copy 
+                    <asp:SqlDataSource ID="SqlMemberDVDLoaned" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_title, DVD_Copy.CopyID, CONCAT(Member.Member_Fname, ' ', Member.Member_Lname) AS MemberName FROM DVD JOIN DVD_Copy 
 ON DVD.DVD_ID = DVD_Copy.DVD_ID JOIN Loan 
 ON DVD_Copy.CopyID = Loan.CopyID JOIN Member
 On Loan.MemberID = Member.MemberID
-WHERE Loan.IssuedDate &gt;= (GETDATE() - 31) "></asp:SqlDataSource>
+WHERE Loan.IssuedDate &gt;= (GETDATE() - 31)  AND @MemberID = Member.MemberID">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" DefaultValue="6000" Name="MemberID" PropertyName="SelectedValue" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
                     <div class="memberID-dropdown" style="margin-top: 30px; width: 35%;">
-                        Select MemberID: &nbsp; <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="memberIDDropdown" DataTextField="MemberID" DataValueField="MemberID"  Font-Size="Large"></asp:DropDownList>
+                        Select MemberID: &nbsp; <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="memberIDDropdown" DataTextField="MemberID" DataValueField="MemberID"  Font-Size="Large" AutoPostBack="True"></asp:DropDownList>
                         <asp:SqlDataSource ID="memberIDDropdown" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [MemberID] FROM [Member]"></asp:SqlDataSource>
                     </div>
                 </div>

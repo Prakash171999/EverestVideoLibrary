@@ -11,7 +11,7 @@
                             <asp:BoundField DataField="DVD_ID" HeaderText="DVD_ID" InsertVisible="False" ReadOnly="True" SortExpression="DVD_ID" />
                             <asp:BoundField DataField="DVD_title" HeaderText="DVD_title" SortExpression="DVD_title" />
                             <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
-                            <asp:BoundField DataField="ReleaseDate" HeaderText="ReleaseDate" SortExpression="ReleaseDate" />
+                            <asp:BoundField DataField="ReleaseDate" HeaderText="ReleaseDate" SortExpression="ReleaseDate" DataFormatString="{0: dd/MM/yyyy}" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />
@@ -23,7 +23,9 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1"  runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_ID], [DVD_title], [Category], [ReleaseDate] FROM [DVD]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1"  runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_ID, DVD.DVD_title, DVD.Category, DVD.ReleaseDate FROM DVD WHERE DVD.DVD_ID NOT IN
+(SELECT DVD_Copy.DVD_ID FROM DVD_Copy WHERE DVD_Copy.CopyID IN
+(SELECT Loan.CopyID FROM Loan WHERE Loan.IssuedDate &gt;= (GETDATE() - 31))) "></asp:SqlDataSource>
                 </div>
             </div>
         </div>

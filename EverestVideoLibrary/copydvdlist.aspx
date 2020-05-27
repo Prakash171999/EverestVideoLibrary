@@ -5,11 +5,12 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -2%;">DVD Details List</h4>
                 <div class="column col-6" style="margin-left: -3%; margin-top: 2%;">
-                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="5">
+                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="5" DataKeyNames="DVD_ID">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
+                            <asp:BoundField DataField="DVD_ID" HeaderText="DVD_ID" SortExpression="DVD_ID" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="DVD_title" HeaderText="DVD_title" SortExpression="DVD_title" />
-                            <asp:BoundField DataField="CopiesOnShelf" HeaderText="CopiesOnShelf" SortExpression="CopiesOnShelf" ReadOnly="True" />
+                            <asp:BoundField DataField="CopiesOnShelf" HeaderText="CopiesOnShelf" ReadOnly="True" SortExpression="CopiesOnShelf" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />
@@ -21,11 +22,15 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_title, COUNT(DVD_Copy.CopyID) AS CopiesOnShelf FROM DVD_Copy JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID JOIN CastMember
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_ID, DVD.DVD_title, COUNT(DVD_Copy.CopyID) AS CopiesOnShelf FROM DVD_Copy JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID JOIN CastMember
 ON CastMember.DVD_ID = DVD.DVD_ID JOIN Actor ON Actor.ActorID = CastMember.ActorID
 WHERE (DVD_Copy.CopyID NOT IN (SELECT Loan.CopyID From Loan) OR DVD_Copy.CopyID IN 
-(SELECT Loan.CopyID From Loan where Loan.ReturnedDate IS NOT NULL)) AND Actor.ActorID = '11' GROUP BY DVD.DVD_title"></asp:SqlDataSource>
-                    <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="Actor_Lname" DataValueField="Actor_Lname"></asp:DropDownList>
+(SELECT Loan.CopyID From Loan where Loan.ReturnedDate IS NOT NULL)) AND @Actor_Lname = Actor.Actor_Lname GROUP BY DVD.DVD_ID, DVD.DVD_title">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" DefaultValue="Downey" Name="Actor_Lname" PropertyName="SelectedValue" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="Actor_Lname" DataValueField="Actor_Lname" AutoPostBack="True"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DISTINCT Actor_Lname FROM Actor"></asp:SqlDataSource>
                 </div>
             </div>

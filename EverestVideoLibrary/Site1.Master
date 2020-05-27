@@ -62,7 +62,7 @@
                             <a href="DVDCopyDetails.aspx">DVD Copy Loan Details</a>
                         </li>
                         <li>
-                            <a href="DVDCopyCRUD.aspx">DVD Copy CRUD</a>
+                            <a href="DVDCopyCRUD.aspx">Remove DVD Copy</a>
                         </li>
                         <li>
                             <a href="DVDCopyLoan.aspx">DVD Copies On Loan</a>

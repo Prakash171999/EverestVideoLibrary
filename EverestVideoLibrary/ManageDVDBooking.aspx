@@ -84,7 +84,7 @@
                                 <br />
                                 ReturnedDate:
                                 <asp:TextBox ID="ReturnedDateTextBox" class="form-control" runat="server" TextMode="Date" Text='<%# Bind("ReturnedDate") %>' />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="ReturnedDateTextBox" ForeColor="Red" runat="server" ErrorMessage="Enter the returned date!"></asp:RequiredFieldValidator>
+                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="ReturnedDateTextBox" ForeColor="Red" runat="server" ErrorMessage="Enter the returned date!"></asp:RequiredFieldValidator>--%>
                                 <br />
                                 TotalDays:
                                 <asp:TextBox ID="TotalDaysTextBox" class="form-control" runat="server" Text='<%# Bind("TotalDays") %>' />

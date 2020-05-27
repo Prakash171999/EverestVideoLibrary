@@ -21,8 +21,12 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView><br />
-                    <asp:SqlDataSource ID="Sqlgridview" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_ID], [DVD_title] FROM [DVD]"></asp:SqlDataSource>
-                    <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="Sqldropdown" DataTextField="Actor_Lname" DataValueField="Actor_Lname"></asp:DropDownList>
+                    <asp:SqlDataSource ID="Sqlgridview" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT CastMember.DVD_ID, DVD.DVD_title FROM Actor INNER JOIN CastMember ON Actor.ActorID = CastMember.ActorID INNER JOIN DVD ON CastMember.DVD_ID = DVD.DVD_ID WHERE @Actor_Lname = Actor.Actor_Lname">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" DefaultValue="Downey" Name="Actor_Lname" PropertyName="SelectedValue" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="Sqldropdown" DataTextField="Actor_Lname" DataValueField="Actor_Lname" AutoPostBack="True"></asp:DropDownList>
                     <asp:SqlDataSource ID="Sqldropdown" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DISTINCT Actor_Lname FROM Actor"></asp:SqlDataSource>
                 </div>
             </div>

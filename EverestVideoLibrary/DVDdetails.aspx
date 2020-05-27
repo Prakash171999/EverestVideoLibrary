@@ -5,15 +5,14 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">List of DVD details</h4>
                 <div class="column col-6" style="margin-left: -3%;">
-                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="DVD_ID" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="4">
+                    <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
-                            <asp:BoundField DataField="DVD_ID" HeaderText="DVD_ID" InsertVisible="False" ReadOnly="True" SortExpression="DVD_ID" />
                             <asp:BoundField DataField="DVD_title" HeaderText="DVD_title" SortExpression="DVD_title" />
-                            <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
-                            <asp:BoundField DataField="ReleaseDate" HeaderText="ReleaseDate" SortExpression="ReleaseDate" />
-                            <asp:BoundField DataField="StandardCharge" HeaderText="StandardCharge" SortExpression="StandardCharge" />
-                            <asp:BoundField DataField="PenaltyCharge" HeaderText="PenaltyCharge" SortExpression="PenaltyCharge" />
+                            <asp:BoundField DataField="ProducerName" HeaderText="ProducerName" SortExpression="ProducerName" />
+                            <asp:BoundField DataField="StudioName" HeaderText="StudioName" SortExpression="StudioName" />
+                            <asp:BoundField DataField="Actor_Lname" HeaderText="Actor_Lname" SortExpression="Actor_Lname" />
+                            <asp:BoundField DataField="ReleaseDate" HeaderText="ReleaseDate" SortExpression="ReleaseDate" DataFormatString="{0: dd/MM/yyyy}" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />
@@ -25,7 +24,11 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_ID], [DVD_title], [Category], [ReleaseDate], [StandardCharge], [PenaltyCharge] FROM [DVD]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="Select DVD.DVD_title, Producer.ProducerName, Studio.StudioName,  Actor.Actor_Lname, DVD.ReleaseDate FROM Studio JOIN DVD ON Studio.StudioID = DVD.StudioID
+JOIN Producer ON DVD.ProducerID = Producer.ProducerID 
+JOIN CastMember ON DVD.DVD_ID = CastMember.DVD_ID JOIN Actor
+ON CastMember.ActorID = Actor.ActorID
+ORDER BY DVD.ReleaseDate, Actor.Actor_Lname "></asp:SqlDataSource>
                 </div>
             </div>
         </div>

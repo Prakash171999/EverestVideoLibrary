@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace EverestVideoLibrary
 {
@@ -165,6 +166,24 @@ namespace EverestVideoLibrary
             }
 
             sqlConnection1.Dispose();
+
+            MessageBox.Show("New DVD has been added to the store.");
+            ClearAddDVDForm();
+            
+        }
+        public void ClearAddDVDForm()
+        {
+            dvd_title.Value = "";
+            category.Value = "";
+            Producer.Value = "";
+            Actor.Value = "";
+            Studio.Value = "";
+            radio1.Checked = true;
+            releasedate.Value = "";
+            StandardCharge.Value = "";
+            PenaltyCharge.Value = "";
+            TotalCopies.Value = "";
+            
         }
     }
 }
