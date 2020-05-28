@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="EverestVideoLibrary.WebForm8" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="EverestVideoLibrary.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent2" runat="server">
     <div class="container-fluid">
         <div class="main" style="margin-left: -5.5%; top: 2px; left: 3px; height: 600px;">
@@ -22,7 +22,7 @@
                       </div>     
                   </div>
                   <div class="loginBtn" style="margin-top:2%">
-                     <asp:Button ID="Button1" runat="server" Text="Log In" style="font-size: 20px;" BackColor="Maroon"  BorderColor="Maroon" ForeColor="white" Height="37px" Width="140px" OnClick="Button1_Click" />                      
+                     <asp:Button ID="BtnLogin" runat="server" Text="Log In" style="font-size: 20px;" BackColor="Maroon"  BorderColor="Maroon" ForeColor="white" Height="37px" Width="140px" OnClick="BtnLogin_Click" />                      
                   </div>
                   <div class="LoginBtn" style="margin-top: 3%;">
                       <asp:Label ID="loginMsg" runat="server" Text="" ForeColor="Red" ></asp:Label>

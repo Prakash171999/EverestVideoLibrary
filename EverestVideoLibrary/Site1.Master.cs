@@ -9,6 +9,7 @@ namespace EverestVideoLibrary
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -22,30 +23,30 @@ namespace EverestVideoLibrary
 
             if (Session["usertype"].ToString() == "Manager")
             {
-                ManageUser.Visible = true;
-                AssistanceChangePassword.Visible = false;     
+                ManageUserBtn.Visible = true;
+                AssistanceChangePasswordBtn.Visible = false;     
             }
             else
             {
-                ManageUser.Visible = false;
-                AssistanceChangePassword.Visible = true;                
+                ManageUserBtn.Visible = false;
+                AssistanceChangePasswordBtn.Visible = true;                
             }
 
 
         }
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        protected void logoutBtn_Click(object sender, ImageClickEventArgs e)
         {
             Session.Clear();
             Response.Redirect("login.aspx");
         }
 
-        protected void AssistanceChangePassword_Click(object sender, EventArgs e)
+        protected void AssistanceChangePasswordBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("AssisPwdChange.aspx");
         }
 
-        protected void ManageUser_Click(object sender, EventArgs e)
+        protected void ManageUserBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("ManageUsers.aspx");
         }

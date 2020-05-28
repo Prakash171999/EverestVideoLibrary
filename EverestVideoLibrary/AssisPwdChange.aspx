@@ -25,7 +25,7 @@
                        </div>
                   </div>
                   <div class="chgPwdBtn" style="margin-top:5%">
-                      <asp:Button ID="Submit" runat="server" Text="Submit"  BackColor="#000046" BorderColor="#000046" ForeColor="white" Height="37px" Width="193px" OnClick="Submit_Click" />
+                      <asp:Button ID="chgPwdBtn" runat="server" Text="Submit"  BackColor="#000046" BorderColor="#000046" ForeColor="white" Height="37px" Width="193px" OnClick="chgPwdBtn_Click" />
                   </div>
                   <div class="pwdChglbl" style="margin-top: 3%;">
                       <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>

@@ -11,7 +11,7 @@ namespace EverestVideoLibrary
 {
 
 
-    public partial class WebForm3
+    public partial class NotBorrowedDVDs
     {
 
         /// <summary>

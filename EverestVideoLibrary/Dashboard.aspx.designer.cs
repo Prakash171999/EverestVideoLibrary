@@ -11,7 +11,7 @@ namespace EverestVideoLibrary
 {
 
 
-    public partial class WebForm1
+    public partial class Dashboard
     {
 
         /// <summary>

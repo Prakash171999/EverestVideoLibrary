@@ -17,7 +17,7 @@ namespace EverestVideoLibrary
 
         }
 
-        protected void Submit_Click(object sender, EventArgs e)
+        protected void chgPwdBtn_Click(object sender, EventArgs e)
         {
             var newPwd = NewPwd.Text;
             var PwdConfirm = ConfirmPwd.Text;

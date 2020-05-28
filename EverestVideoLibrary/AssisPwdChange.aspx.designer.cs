@@ -60,13 +60,13 @@ namespace EverestVideoLibrary
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
 
         /// <summary>
-        /// Submit control.
+        /// chgPwdBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Submit;
+        protected global::System.Web.UI.WebControls.Button chgPwdBtn;
 
         /// <summary>
         /// Label1 control.

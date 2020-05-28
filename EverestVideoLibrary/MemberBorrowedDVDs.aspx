@@ -25,7 +25,11 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Member.Member_Fname, Member.Member_Lname, Member.Address, Member.Age, MemberCategory.MemberCategory, (SELECT CASE WHEN Loan.ReturnedDate IS NULL THEN COUNT(Loan.LoanID) ELSE '0' END AS Expr1) AS LoanNumber FROM MemberCategory INNER JOIN Member ON Member.MemberCategoryID = MemberCategory.MemberCategoryID LEFT OUTER JOIN Loan ON Loan.MemberID = Member.MemberID GROUP BY Member.Member_Fname, Member.Member_Lname, Member.Address, Member.Age, MemberCategory.MemberCategory, Loan.ReturnedDate"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Member.Member_Fname, Member.Member_Lname, 
+Member.Address, Member.Age, MemberCategory.MemberCategory, 
+COUNT(Loan.LoanID) AS LoanNumber FROM MemberCategory JOIN Member ON 
+Member.MemberCategoryID = MemberCategory.MemberCategoryID LEFT OUTER JOIN
+Loan ON Loan.MemberID = Member.MemberID GROUP BY Member.Member_Fname, Member.Member_Lname, Member.Address, Member.Age, MemberCategory.MemberCategory"></asp:SqlDataSource>
                 </div>
             </div>
         </div>

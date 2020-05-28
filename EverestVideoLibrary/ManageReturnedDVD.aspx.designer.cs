@@ -78,12 +78,12 @@ namespace EverestVideoLibrary
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl totaldays;
 
         /// <summary>
-        /// Button1 control.
+        /// ReturnedDVD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ReturnedDVD;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AddNewDVD.aspx.cs" Inherits="EverestVideoLibrary.WebForm7" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AddNewDVD.aspx.cs" Inherits="EverestVideoLibrary.AddNewDVD" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="container-fluid">
         <div class="table-wrapper">
@@ -14,7 +14,7 @@
                             <asp:BoundField DataField="ProducerID" HeaderText="ProducerID" SortExpression="ProducerID" />
                             <asp:BoundField DataField="StudioID" HeaderText="StudioID" SortExpression="StudioID" />
                             <asp:CheckBoxField DataField="IsAgeRestricted" HeaderText="IsAgeRestricted" SortExpression="IsAgeRestricted" />
-                            <asp:BoundField DataField="ReleaseDate" HeaderText="ReleaseDate" SortExpression="ReleaseDate" />
+                            <asp:BoundField DataField="ReleaseDate" HeaderText="ReleaseDate" SortExpression="ReleaseDate" DataFormatString="{0: dd/MM/yyyy}" />
                             <asp:BoundField DataField="StandardCharge" HeaderText="StandardCharge" SortExpression="StandardCharge" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -55,7 +55,7 @@
             </div>
         </div>
          <div class="BtnDVDAddForm" style="margin-left: -17px;">
-             <asp:Button ID="Button1" runat="server" Text="Add New DVD" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="130px" Height="35px" OnClick="Button1_Click" />
+             <asp:Button ID="NewDVDAddBtn" runat="server" Text="Add New DVD" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="130px" Height="35px" OnClick="NewDVDAddBtn_Click" />
          </div>
     </div>
 </asp:Content>

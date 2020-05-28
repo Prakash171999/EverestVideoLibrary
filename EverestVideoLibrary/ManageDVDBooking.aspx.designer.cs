@@ -11,7 +11,7 @@ namespace EverestVideoLibrary
 {
 
 
-    public partial class WebForm6
+    public partial class ManageDVDBooking
     {
 
         /// <summary>
@@ -78,13 +78,13 @@ namespace EverestVideoLibrary
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDVDTitle;
 
         /// <summary>
-        /// Button1 control.
+        /// ChkRestrictionBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ChkRestrictionBtn;
 
         /// <summary>
         /// FormView1 control.

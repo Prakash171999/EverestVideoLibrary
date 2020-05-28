@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace EverestVideoLibrary
 {
-    public partial class WebForm8 : System.Web.UI.Page
+    public partial class login : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-FG2OP2K;Initial Catalog=EverestVideoLibrary;Integrated Security=True");
 
@@ -19,7 +19,7 @@ namespace EverestVideoLibrary
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void BtnLogin_Click(object sender, EventArgs e)
         {
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();

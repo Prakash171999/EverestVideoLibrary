@@ -136,6 +136,10 @@
     <Content Include="ManageDVDBooking.aspx" />
     <Content Include="AddNewDVD.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
+    <Content Include="ClassDiagram3.cd" />
+    <Content Include="ClassDiagram4.cd" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />

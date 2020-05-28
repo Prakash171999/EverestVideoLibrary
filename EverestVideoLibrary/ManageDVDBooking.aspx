@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ManageDVDBooking.aspx.cs" Inherits="EverestVideoLibrary.WebForm6" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ManageDVDBooking.aspx.cs" Inherits="EverestVideoLibrary.ManageDVDBooking" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="container-fluid">
         <div class="table-wrapper">
@@ -14,9 +14,9 @@
                             <asp:BoundField DataField="LoanTypeID" HeaderText="LoanTypeID" InsertVisible="False" ReadOnly="True" SortExpression="LoanTypeID" />
                             <asp:BoundField DataField="LoanType" HeaderText="LoanType" SortExpression="LoanType" />
                             <asp:BoundField DataField="TypeSpan" HeaderText="TypeSpan" SortExpression="TypeSpan" />
-                            <asp:BoundField DataField="IssuedDate" HeaderText="IssuedDate" SortExpression="IssuedDate" />
-                            <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" />
-                            <asp:BoundField DataField="ReturnedDate" HeaderText="ReturnedDate" SortExpression="ReturnedDate" />
+                            <asp:BoundField DataField="IssuedDate" HeaderText="IssuedDate" SortExpression="IssuedDate" DataFormatString="{0: dd/MM/yyyy}" />
+                            <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" DataFormatString="{0: dd/MM/yyyy}" />
+                            <asp:BoundField DataField="ReturnedDate" HeaderText="ReturnedDate" SortExpression="ReturnedDate" DataFormatString="{0: dd/MM/yyyy}" />
                             <asp:BoundField DataField="Days" HeaderText="Days" SortExpression="Days" />
                             <asp:BoundField DataField="Fine" HeaderText="Fine" ReadOnly="True" SortExpression="Fine" />
                         </Columns>
@@ -56,7 +56,7 @@
                         <h6>DVD Title: <asp:DropDownList CSSClass="form-control" ID="DropDownList2" runat="server" DataSourceID="SqlDVDTitle" DataTextField="DVD_title" DataValueField="DVD_ID"></asp:DropDownList></h6>
                         <asp:SqlDataSource ID="SqlDVDTitle" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_title], [DVD_ID] FROM [DVD]"></asp:SqlDataSource>
                         <div class="checkBtn" style="margin-top: 5%;">
-                            <asp:Button ID="Button1" runat="server" Text="Check Restriction" BackColor="#000046" ForeColor="white" Height="38px" Width="153px" BorderColor="#000046" OnClick="Button1_Click" />&nbsp;&nbsp;
+                            <asp:Button ID="ChkRestrictionBtn" runat="server" Text="Check Restriction" BackColor="#000046" ForeColor="white" Height="38px" Width="153px" BorderColor="#000046" OnClick="ChkRestrictionBtn_Click" />&nbsp;&nbsp;
                         </div>
                     </div>
                     <div class="addBookDetails" style="margin-top:4%;">

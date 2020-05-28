@@ -9,10 +9,10 @@ namespace EverestVideoLibrary
 {
     public partial class Site2 : System.Web.UI.MasterPage
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         protected void loginBtn_Click(object sender, EventArgs e)
         {

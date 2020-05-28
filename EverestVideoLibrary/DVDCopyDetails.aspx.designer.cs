@@ -11,7 +11,7 @@ namespace EverestVideoLibrary
 {
 
 
-    public partial class WebForm4
+    public partial class DVDCopyDetails
     {
 
         /// <summary>

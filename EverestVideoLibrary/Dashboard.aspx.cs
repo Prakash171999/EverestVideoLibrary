@@ -8,7 +8,7 @@ using System.Data;
 
 namespace EverestVideoLibrary
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Dashboard : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

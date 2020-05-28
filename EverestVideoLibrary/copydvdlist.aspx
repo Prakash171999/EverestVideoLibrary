@@ -22,7 +22,7 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_ID, DVD.DVD_title, COUNT(DVD_Copy.CopyID) AS CopiesOnShelf FROM DVD_Copy JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID JOIN CastMember
+                    <asp:SqlDataSource ID="SqlDVDdetails" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_ID, DVD.DVD_title, COUNT(DVD_Copy.CopyID) AS CopiesOnShelf FROM DVD_Copy JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID JOIN CastMember
 ON CastMember.DVD_ID = DVD.DVD_ID JOIN Actor ON Actor.ActorID = CastMember.ActorID
 WHERE (DVD_Copy.CopyID NOT IN (SELECT Loan.CopyID From Loan) OR DVD_Copy.CopyID IN 
 (SELECT Loan.CopyID From Loan where Loan.ReturnedDate IS NOT NULL)) AND @Actor_Lname = Actor.Actor_Lname GROUP BY DVD.DVD_ID, DVD.DVD_title">
@@ -30,8 +30,8 @@ WHERE (DVD_Copy.CopyID NOT IN (SELECT Loan.CopyID From Loan) OR DVD_Copy.CopyID 
                             <asp:ControlParameter ControlID="DropDownList1" DefaultValue="Downey" Name="Actor_Lname" PropertyName="SelectedValue" />
                         </SelectParameters>
                     </asp:SqlDataSource>
-                    <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="Actor_Lname" DataValueField="Actor_Lname" AutoPostBack="True"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DISTINCT Actor_Lname FROM Actor"></asp:SqlDataSource>
+                    <asp:DropDownList ID="DropDownActorLname" class="form-control" runat="server" DataSourceID="SqlDataSource2" DataTextField="Actor_Lname" DataValueField="Actor_Lname" AutoPostBack="True"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlActorLname" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DISTINCT Actor_Lname FROM Actor"></asp:SqlDataSource>
                 </div>
             </div>
         </div>

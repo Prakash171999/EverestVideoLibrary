@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace EverestVideoLibrary
 {
-    public partial class WebForm6 : System.Web.UI.Page
+    public partial class ManageDVDBooking : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-FG2OP2K;Initial Catalog=EverestVideoLibrary;Integrated Security=True");
 
@@ -25,7 +25,7 @@ namespace EverestVideoLibrary
            
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ChkRestrictionBtn_Click(object sender, EventArgs e)
         {
             int memberID = Convert.ToInt32(DropDownList1.SelectedValue);
             int dvdID = Convert.ToInt32(DropDownList2.SelectedValue);

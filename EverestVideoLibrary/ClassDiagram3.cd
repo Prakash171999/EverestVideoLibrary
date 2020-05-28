@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EverestVideoLibrary.AddNewDVD">
+    <Position X="15.75" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAACAAAAAAAAEAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>AddNewDVD.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.AssisPwdChange">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABEAAAAEAAAAAAgAAAAAQAAAQAAAAAAQIAAgQ=</HashCode>
+      <FileName>AssisPwdChange.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.copydvdlist">
+    <Position X="18.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAAAAAAAAAAgAAAAAAEAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>copydvdlist.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.Dashboard">
+    <Position X="21.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgABAAAgAAAEIAAABAAAAAAAAAAAQAUAAIEAAA=</HashCode>
+      <FileName>Dashboard.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.DVDAddForm">
+    <Position X="29.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAQIAAAAEAISAAAASEQoAAAAAAA=</HashCode>
+      <FileName>DVDAddForm.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.DVDCopiesNotOnLoan">
+    <Position X="26.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>DVDCopiesNotOnLoan.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.DVDCopyCRUD">
+    <Position X="9" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QIAAAAAAAAAAAAAAAAADAAAAAIQAAAAAAAAQAAIgAAA=</HashCode>
+      <FileName>DVDCopyCRUD.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.DVDCopyDetails">
+    <Position X="8" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAgAAAAIAAAA=</HashCode>
+      <FileName>DVDCopyDetails.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.DVDCopyLoan">
+    <Position X="5.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>DVDCopyLoan.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.DVDCopyManagement">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>DVDdetails.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.dvdlist">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAQgAAAAAAAAAAgAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>dvdlist.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.loanedDVDList">
+    <Position X="5.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAQAAAgIAAAA=</HashCode>
+      <FileName>DVDLoanList.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.Global">
+    <Position X="13" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.homepage">
+    <Position X="12.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>homepage.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.login">
+    <Position X="18.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAEAAAAAAAAFAAAQEAAAAAAAAAgIAAgA=</HashCode>
+      <FileName>login.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.ManageDVDBooking">
+    <Position X="11.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAAEQAZAQBIAAAAAAAAAAQQAAAAAgAAAAIAAAA=</HashCode>
+      <FileName>ManageDVDBooking.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.ManageReturnedDVD">
+    <Position X="25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAEAAUCAAAABABAAAAAAAQAAAAAgAAAAIAAAQ=</HashCode>
+      <FileName>ManageReturnedDVD.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.ManageUsers">
+    <Position X="20" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ManageUsers.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.MemberBorrowedDVDs">
+    <Position X="22.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>MemberBorrowedDVDs.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.NotBorrowedDVDs">
+    <Position X="22.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>NotBorrowedDVDs.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.Site1">
+    <Position X="20.25" Y="16.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAkAAAAAAAAACAAAAAIAAgAABAAAoARAIAAAg=</HashCode>
+      <FileName>Site1.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EverestVideoLibrary.Site2">
+    <Position X="18.25" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAACAAAABIAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Site2.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Web.UI.Page" Collapsed="true">
+    <Position X="15.5" Y="8" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Web.UI.MasterPage">
+    <Position X="23.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

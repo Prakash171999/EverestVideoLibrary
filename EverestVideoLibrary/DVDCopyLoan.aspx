@@ -9,9 +9,11 @@
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
                             <asp:BoundField DataField="LoanID" HeaderText="LoanID" InsertVisible="False" ReadOnly="True" SortExpression="LoanID" />
-                            <asp:BoundField DataField="IssuedDate" HeaderText="IssuedDate" SortExpression="IssuedDate" DataFormatString="{0: dd/MM/yyyy}" />
-                            <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" />
-                            <asp:BoundField DataField="ReturnedDate" HeaderText="ReturnedDate" SortExpression="ReturnedDate" />
+                            <asp:BoundField DataField="CopyID" HeaderText="CopyID" SortExpression="CopyID" />
+                            <asp:BoundField DataField="IssuedDate" HeaderText="IssuedDate" SortExpression="IssuedDate" />
+                            <asp:BoundField DataField="TotalLoansInIssuedDate" HeaderText="TotalLoansInIssuedDate" ReadOnly="True" SortExpression="TotalLoansInIssuedDate" />
+                            <asp:BoundField DataField="DVD_title" HeaderText="DVD_title" SortExpression="DVD_title" />
+                            <asp:BoundField DataField="MemberName" HeaderText="MemberName" ReadOnly="True" SortExpression="MemberName" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#1a202e" Font-Bold="True" ForeColor="White" />
@@ -23,7 +25,12 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [LoanID], [IssuedDate], [DueDate], [ReturnedDate] FROM [Loan]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Loan.LoanID, Loan.CopyID, Loan.IssuedDate, C.TotalLoansInIssuedDate, DVD_title, 
+CONCAT(Member.Member_Fname, ' ', Member.Member_Lname) AS MemberName FROM Member JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN 
+(SELECT IssuedDate,Count(IssuedDate) as TotalLoansInIssuedDate FROM Loan GROUP BY IssuedDate) AS C 
+ON Loan.IssuedDate = C.IssuedDate JOIN DVD_Copy ON DVD_Copy.CopyID = Loan.CopyID JOIN DVD ON 
+DVD.DVD_ID = DVD_Copy.DVD_ID WHERE Loan.ReturnedDate IS NULL GROUP BY Loan.CopyID, Loan.IssuedDate, C.TotalLoansInIssuedDate,
+DVD.DVD_title, Member.Member_Fname, Member.Member_Lname, Loan.LoanID ORDER BY Loan.IssuedDate, DVD.DVD_title"></asp:SqlDataSource>
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ namespace EverestVideoLibrary
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ReturnedDVD_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-FG2OP2K;Initial Catalog=EverestVideoLibrary;Integrated Security=True");
 

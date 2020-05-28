@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace EverestVideoLibrary
 {
-    public partial class WebForm5 : System.Web.UI.Page
+    public partial class DVDCopyCRUD : System.Web.UI.Page
     {
         //Instance for the SqlConnection
         private SqlConnection connection = new SqlConnection();
@@ -29,7 +29,7 @@ namespace EverestVideoLibrary
 
         }
 
-        public WebForm5()
+        public DVDCopyCRUD()
         {
             //Configure the ConnectionString for SqlConnection instance
             connection.ConnectionString = ConfigurationManager.ConnectionStrings["EverestVideoLibraryConnectionString"].ConnectionString.ToString();

@@ -33,40 +33,40 @@ namespace EverestVideoLibrary
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ManageUser control.
+        /// ManageUserBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ManageUser;
+        protected global::System.Web.UI.WebControls.Button ManageUserBtn;
 
         /// <summary>
-        /// AssistanceChangePassword control.
+        /// AssistanceChangePasswordBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AssistanceChangePassword;
+        protected global::System.Web.UI.WebControls.Button AssistanceChangePasswordBtn;
 
         /// <summary>
-        /// ImageButton1 control.
+        /// logoutBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected global::System.Web.UI.WebControls.ImageButton logoutBtn;
 
         /// <summary>
-        /// ImageButton2 control.
+        /// UserIcon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
+        protected global::System.Web.UI.WebControls.ImageButton UserIcon;
 
         /// <summary>
         /// userType control.

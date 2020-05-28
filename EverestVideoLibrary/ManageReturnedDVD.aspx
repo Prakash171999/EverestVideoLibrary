@@ -14,9 +14,9 @@
                             <asp:BoundField DataField="LoanTypeID" HeaderText="LoanTypeID" InsertVisible="False" ReadOnly="True" SortExpression="LoanTypeID" />
                             <asp:BoundField DataField="LoanType" HeaderText="LoanType" SortExpression="LoanType" />
                             <asp:BoundField DataField="TypeSpan" HeaderText="TypeSpan" SortExpression="TypeSpan" />
-                            <asp:BoundField DataField="IssuedDate" HeaderText="IssuedDate" SortExpression="IssuedDate" />
-                            <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" />
-                            <asp:BoundField DataField="ReturnedDate" HeaderText="ReturnedDate" SortExpression="ReturnedDate" />
+                            <asp:BoundField DataField="IssuedDate" HeaderText="IssuedDate" SortExpression="IssuedDate" DataFormatString="{0: dd/MM/yyyy}" />
+                            <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" DataFormatString="{0: dd/MM/yyyy}" />
+                            <asp:BoundField DataField="ReturnedDate" HeaderText="ReturnedDate" SortExpression="ReturnedDate" DataFormatString="{0: dd/MM/yyyy}" />
                             <asp:BoundField DataField="Days" HeaderText="Days" SortExpression="Days" />
                             <asp:BoundField DataField="Fine" HeaderText="Fine" ReadOnly="True" SortExpression="Fine" />
                         </Columns>
@@ -55,7 +55,7 @@
                           </div>
                         </div>
                         <div class="updateBtn" style="margin-left: 18.5em">
-                            <asp:Button ID="Button1" runat="server" Text="Update" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="90px" Height="35px" OnClick="Button1_Click"/>
+                            <asp:Button ID="ReturnedDVD" runat="server" Text="Update" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="90px" Height="35px" OnClick="ReturnedDVD_Click"/>
                         </div>
                     </div>
                 </div>
