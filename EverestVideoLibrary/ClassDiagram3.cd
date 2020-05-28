@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EverestVideoLibrary.DVDAddForm">
-    <Position X="29.25" Y="5.5" Width="1.5" />
+    <Position X="29.25" Y="5.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAQIAAAAEAISAAAASEQoAAAAAAA=</HashCode>
       <FileName>DVDAddForm.aspx.cs</FileName>
@@ -84,13 +84,6 @@
       <FileName>DVDLoanList.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EverestVideoLibrary.Global">
-    <Position X="13" Y="15" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>Global.asax.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="EverestVideoLibrary.homepage">
     <Position X="12.5" Y="4" Width="1.5" />
     <TypeIdentifier>
@@ -106,7 +99,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EverestVideoLibrary.ManageDVDBooking">
-    <Position X="11.25" Y="7.75" Width="1.5" />
+    <Position X="11.25" Y="7.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>BIAAAAAAEQAZAQBIAAAAAAAAAAQQAAAAAgAAAAIAAAA=</HashCode>
       <FileName>ManageDVDBooking.aspx.cs</FileName>

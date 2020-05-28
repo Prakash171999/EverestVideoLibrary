@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="homepage.aspx.cs" Inherits="EverestVideoLibrary.homepage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent2" runat="server">
     <div class="container-fluid" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom:0px">                 
-    <%--<div class="fakeimg" style="padding-top: 0px;">Fake Image</div>--%>
         <!--Carousel Wrapper-->
         <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
           <!--Indicators-->
