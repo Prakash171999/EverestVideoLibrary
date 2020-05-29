@@ -5,6 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">Manage Users</h4>
                 <div class="column col-6" style="margin-left: -3%; height: 900px;"">
+                    <%-- Gridview starts from here --%>
                     <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="UserID" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="5">
                         <AlternatingRowStyle BackColor="Gainsboro" />
                         <Columns>
@@ -26,6 +27,7 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
+                    <%-- Sql datasource for above gridview and for CRUD operation --%>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" DeleteCommand="DELETE FROM [Users] WHERE [UserID] = @UserID" InsertCommand="INSERT INTO [Users] ([UserName], [Password], [UserType]) VALUES (@UserName, @Password, @UserType)" SelectCommand="SELECT [UserID], [UserName], [Password], [UserType] FROM [Users]" UpdateCommand="UPDATE [Users] SET [UserName] = @UserName, [Password] = @Password, [UserType] = @UserType WHERE [UserID] = @UserID">
                         <DeleteParameters>
                             <asp:Parameter Name="UserID" Type="Int64" />
@@ -44,6 +46,7 @@
                     </asp:SqlDataSource>
                     <div class="addUserForm" style="margin-top: 3%;">
                     <asp:FormView ID="FormView1" runat="server" DataKeyNames="UserID" DataSourceID="SqlDataSource1">
+                        <%-- Insert item template which opens when the add user button is clicked --%>
                         <InsertItemTemplate>
                             UserName:
                             <asp:TextBox ID="UserNameTextBox" class="form-control" runat="server" Text='<%# Bind("UserName") %>' />

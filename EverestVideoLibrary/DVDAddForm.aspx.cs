@@ -171,6 +171,7 @@ namespace EverestVideoLibrary
             ClearAddDVDForm();
             
         }
+        //This method clears all the text fields from the add new DVD form.
         public void ClearAddDVDForm()
         {
             dvd_title.Value = "";

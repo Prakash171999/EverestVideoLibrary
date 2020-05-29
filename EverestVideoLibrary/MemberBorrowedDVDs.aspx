@@ -5,6 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">List of member who borrowed DVD</h4>
                 <div class="column col-6" style="margin-left: -3%;">
+                    <%-- Gridview starts from here --%>
                     <asp:GridView ID="GridView1"  CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -25,11 +26,14 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
+                    <%-- Gridview ends here --%>
+                    <%-- Sql data source for above gridview --%>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Member.Member_Fname, Member.Member_Lname, 
-Member.Address, Member.Age, MemberCategory.MemberCategory, 
-COUNT(Loan.LoanID) AS LoanNumber FROM MemberCategory JOIN Member ON 
-Member.MemberCategoryID = MemberCategory.MemberCategoryID LEFT OUTER JOIN
-Loan ON Loan.MemberID = Member.MemberID GROUP BY Member.Member_Fname, Member.Member_Lname, Member.Address, Member.Age, MemberCategory.MemberCategory"></asp:SqlDataSource>
+                        Member.Address, Member.Age, MemberCategory.MemberCategory, 
+                        COUNT(Loan.LoanID) AS LoanNumber FROM MemberCategory JOIN Member ON 
+                        Member.MemberCategoryID = MemberCategory.MemberCategoryID LEFT OUTER JOIN
+                        Loan ON Loan.MemberID = Member.MemberID GROUP BY Member.Member_Fname, Member.Member_Lname, Member.Address, Member.Age, MemberCategory.MemberCategory">
+                    </asp:SqlDataSource>
                 </div>
             </div>
         </div>

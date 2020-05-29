@@ -13,7 +13,7 @@ namespace EverestVideoLibrary
         {
 
         }
-
+        //This method redirects the user to the DVDAddForm page when add new dvd button is clicked
         protected void NewDVDAddBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("DVDAddForm.aspx");

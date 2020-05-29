@@ -5,6 +5,7 @@
             <div class="table-title" style="margin-left:3%;">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">Manage Returned DVD Copies</h4>
                 <div class="column col-6" style="margin-left: -3%; height: 800px;" >
+                    <%-- Gridview starts from here --%>
                     <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -30,8 +31,12 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
+                    <%-- Gridview ends here --%>
+                    <%-- Sql datasource for above gridview --%>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Loan.LoanID, DVD_Copy.CopyID, Member.MemberID, LoanType.LoanTypeID, LoanType.LoanType, LoanType.LoanDuration AS TypeSpan, Loan.IssuedDate, Loan.DueDate, Loan.ReturnedDate, Loan.TotalDays AS Days, (SELECT CASE WHEN (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) &lt; 0 THEN 0 ELSE (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) END AS Expr1) AS Fine FROM Member INNER JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN DVD_Copy ON Loan.CopyID = DVD_Copy.CopyID INNER JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID INNER JOIN LoanType ON LoanType.LoanTypeID = Loan.LoanTypeID"></asp:SqlDataSource>
+                    <%-- Sql datasource for the returned dvd form --%>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT LoanID, CopyID FROM Loan WHERE ReturnedDate is null"></asp:SqlDataSource>
+                    <%-- Returned DVD form strats here --%>
                     <div style="margin-left: 5%; margin-top:3%">
                         <h5 style="margin-left: 8em;">
                             <asp:Label ID="Label1" runat="server" Text="Update Returned Date"></asp:Label>
@@ -58,6 +63,7 @@
                             <asp:Button ID="ReturnedDVD" runat="server" Text="Update" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="90px" Height="35px" OnClick="ReturnedDVD_Click"/>
                         </div>
                     </div>
+                    <%-- Returned DVD form ends  here --%>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="EverestVideoLibrary.Dashboard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container" style="margin-top: 2%;">
+        <%-- Card items to display the table row count --%>
         <div id="page-content-wrapper">                
             <!--Contents of the body goes here!-->
             <div class="container">

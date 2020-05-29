@@ -13,6 +13,7 @@ namespace EverestVideoLibrary
 {
     public partial class ManageDVDBooking : System.Web.UI.Page
     {
+        //It is the sql connection object which helps to connect with the database in the server.
         SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-FG2OP2K;Initial Catalog=EverestVideoLibrary;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +25,7 @@ namespace EverestVideoLibrary
         {
            
         }
-
+        //
         protected void ChkRestrictionBtn_Click(object sender, EventArgs e)
         {
             int memberID = Convert.ToInt32(DropDownList1.SelectedValue);
@@ -70,13 +71,16 @@ namespace EverestVideoLibrary
             string loanTotal = "Loans Taken: " + totalLoan;
             string loansAllowed = "Loans Allowed: " + totalLoanAllowed;
 
-            //string message;
+            //Displays message box for age restricted users
+            //Displays the total loans that user can borrow and has borrowed
             if (memberAge <= 18 && isRestricted == "True")
             {
                 string message = "Opps! User is Restricted";
                 MessageBox.Show(message + "\n\n" + loanTotal + "\n" + loansAllowed);
 
             }
+            //Displays message box for user who are not restricted
+            //Displays the total loans that user can borrow and has borrowed
             else
             {
                string message2 = "User is Not Restricted";
@@ -84,14 +88,6 @@ namespace EverestVideoLibrary
 
 
             }
-            //Response.Write("<script>alert('" + message + "\n \n Loan taken: " + totalLoan + " \n\n Loan allowed: " + totalLoanAllowed + "');</script>)");
-
-
         }
-
-        //public class messageBox
-        //{
-            
-        //}
     }
 }

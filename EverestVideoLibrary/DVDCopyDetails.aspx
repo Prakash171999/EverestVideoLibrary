@@ -5,6 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">DVD Copy Details</h4>
                 <div class="column col-6" style="margin-left: -3%;">
+                    <%-- Gridview starts from here --%>
                     <asp:GridView ID="GridView1" CssClass="table table-striped table-hover"  runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="CopyID,MemberID" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -27,17 +28,20 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
+                    <%-- SqlDataSource for above gridview --%>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_title, DVD_Copy.CopyID, Member.MemberID, Member.Member_Fname, Member.Member_Lname, Loan.IssuedDate, 
-Loan.DueDate, Loan.ReturnedDate FROM Member INNER JOIN Loan ON Member.MemberID = Loan.MemberID JOIN DVD_Copy 
-ON Loan.CopyID = DVD_Copy.CopyID JOIN DVD ON DVD_Copy.DVD_ID = DVD.DVD_ID WHERE (@CopyID = DVD_Copy.CopyID) 
-GROUP BY DVD.DVD_title, DVD_Copy.CopyID, Member.MemberID, Member.Member_Fname, Member.Member_Lname, Loan.IssuedDate, Loan.DueDate, Loan.ReturnedDate 
-Having(Loan.IssuedDate= (Select MAX(IssuedDate) from LatestIssuedDateView where @CopyID = CopyID) Or IssuedDate is null)">
+                        Loan.DueDate, Loan.ReturnedDate FROM Member INNER JOIN Loan ON Member.MemberID = Loan.MemberID JOIN DVD_Copy 
+                        ON Loan.CopyID = DVD_Copy.CopyID JOIN DVD ON DVD_Copy.DVD_ID = DVD.DVD_ID WHERE (@CopyID = DVD_Copy.CopyID) 
+                        GROUP BY DVD.DVD_title, DVD_Copy.CopyID, Member.MemberID, Member.Member_Fname, Member.Member_Lname, Loan.IssuedDate, Loan.DueDate, Loan.ReturnedDate 
+                        Having(Loan.IssuedDate= (Select MAX(IssuedDate) from LatestIssuedDateView where @CopyID = CopyID) Or IssuedDate is null)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="DropDownList1" DefaultValue="3000" Name="CopyID" PropertyName="SelectedValue" />
                         </SelectParameters>
                     </asp:SqlDataSource>
                     <div class="memberID-dropdown" style="margin-top: 30px; width: 35%;">
+                        <%-- Dropdown list for copyID --%>
                         Select DVD CopyID:<asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource2" DataTextField="CopyID" DataValueField="CopyID" AutoPostBack="True"></asp:DropDownList>
+                        <%-- SqlDataSource for above dropdown list --%>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [CopyID] FROM [DVD_Copy]"></asp:SqlDataSource>
                     </div>
                 </div>

@@ -40,6 +40,8 @@ namespace EverestVideoLibrary
             //Configure SqlDataAdapter instance
             adapter.SelectCommand = command;
         }
+        //This method contains the query to delete the row of DVD_Copy table using delete button.
+        //To delete the copyID from the table, ID from the delete click row is referenced.
         protected void OldDVDDelete_Click(object sender, EventArgs e)
         {
             LinkButton deleteButton = sender as LinkButton;
@@ -51,7 +53,8 @@ namespace EverestVideoLibrary
 
             connection.Open();
             command.ExecuteNonQuery();
-
+            connection.Close();
+            connection.Dispose();
             Response.Redirect("~/DVDCopyCRUD.aspx");
         }
 

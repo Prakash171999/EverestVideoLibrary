@@ -5,6 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -2%;">DVD Details List</h4>
                 <div class="column col-6" style="margin-left: -3%; margin-top: 2%;">
+                    <%-- Gridview for dvd copy list starts from here --%>
                     <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDVDdetails" GridLines="Vertical" AllowPaging="True" PageSize="5" DataKeyNames="DVD_ID">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -22,10 +23,11 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
+                    <%-- SqlDataSource for above gridview --%>
                     <asp:SqlDataSource ID="SqlDVDdetails" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DVD.DVD_ID, DVD.DVD_title, COUNT(DVD_Copy.CopyID) AS CopiesOnShelf FROM DVD_Copy JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID JOIN CastMember
-ON CastMember.DVD_ID = DVD.DVD_ID JOIN Actor ON Actor.ActorID = CastMember.ActorID
-WHERE (DVD_Copy.CopyID NOT IN (SELECT Loan.CopyID From Loan) OR DVD_Copy.CopyID IN 
-(SELECT Loan.CopyID From Loan where Loan.ReturnedDate IS NOT NULL)) AND @Actor_Lname = Actor.Actor_Lname GROUP BY DVD.DVD_ID, DVD.DVD_title">
+                        ON CastMember.DVD_ID = DVD.DVD_ID JOIN Actor ON Actor.ActorID = CastMember.ActorID
+                        WHERE (DVD_Copy.CopyID NOT IN (SELECT Loan.CopyID From Loan) OR DVD_Copy.CopyID IN 
+                        (SELECT Loan.CopyID From Loan where Loan.ReturnedDate IS NOT NULL)) AND @Actor_Lname = Actor.Actor_Lname GROUP BY DVD.DVD_ID, DVD.DVD_title">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="DropDownActorLname" DefaultValue="Downey" Name="Actor_Lname" PropertyName="SelectedValue" />
                         </SelectParameters>

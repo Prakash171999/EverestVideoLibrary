@@ -12,12 +12,18 @@ namespace EverestVideoLibrary
 {
     public partial class login : System.Web.UI.Page
     {
+        //Object of Sql connection with the server database
         SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-FG2OP2K;Initial Catalog=EverestVideoLibrary;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+        /**When the BtnLogin button is clicked, it checks if the username and password entered by the user in the text field is
+           vaid or not by checking in the database table using select query.
+
+           For all the valid user credentails they are redirected their respective pages after successful login.
+        **/
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
@@ -32,6 +38,8 @@ namespace EverestVideoLibrary
             dataAdapter.Fill(datatable);
             foreach (DataRow dr in datatable.Rows)
             {
+                //If the rows in the datatable is more than 0 then the users ID, username and usertype is stored in the session.
+                //And user is redirected to their respective dashboards.
                 if (datatable.Rows.Count > 0)
                 {
                     Session["userID"] = dr["userid"].ToString();
@@ -40,8 +48,8 @@ namespace EverestVideoLibrary
                     Response.Redirect("Dashboard.aspx");
                    
                 }
-                //if (username != dr["username"] || password != dr["password"])
-                else if (datatable.Rows.Count < 0)
+                //Else a message box is displayed with error message.
+                else if
                 {
                     MessageBox.Show("Invalid Username or password!");
                 }

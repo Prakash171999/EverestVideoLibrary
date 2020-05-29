@@ -5,6 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">List of DVDs</h4>
                 <div class="column col-6" style="margin-left: -3%;">
+                    <%-- Gridview starts from here for add new dvd --%>
                     <asp:GridView  runat="server"  CssClass="table table-striped table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="DVD_ID" DataSourceID="sqlNewDVD" GridLines="Vertical" AllowPaging="True" PageSize="5">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -27,6 +28,8 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
+                    <%-- Gridview ends here --%>
+                    <%-- SqlDataSource for above gridview --%>
                     <asp:SqlDataSource ID="sqlNewDVD" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT [DVD_ID], [DVD_title], [Category], [ProducerID], [StudioID], [IsAgeRestricted], [ReleaseDate], [StandardCharge] FROM [DVD]" DeleteCommand="DELETE FROM [DVD] WHERE [DVD_ID] = @DVD_ID" InsertCommand="INSERT INTO [DVD] ([DVD_title], [Category], [ProducerID], [StudioID], [IsAgeRestricted], [ReleaseDate], [StandardCharge]) VALUES (@DVD_title, @Category, @ProducerID, @StudioID, @IsAgeRestricted, @ReleaseDate, @StandardCharge)" UpdateCommand="UPDATE [DVD] SET [DVD_title] = @DVD_title, [Category] = @Category, [ProducerID] = @ProducerID, [StudioID] = @StudioID, [IsAgeRestricted] = @IsAgeRestricted, [ReleaseDate] = @ReleaseDate, [StandardCharge] = @StandardCharge WHERE [DVD_ID] = @DVD_ID">
                         <DeleteParameters>
                             <asp:Parameter Name="DVD_ID" Type="Int64" />

@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent2" runat="server">
     <div class="container-fluid">
         <div class="main" style="margin-left: -5.5%; top: 2px; left: 3px; height: 600px;">
+            <%-- Login user form --%>
           <div class="card text-center" style="width: 27%; height:26em; margin-top: 7%; margin-left: 40%; font-family:'Palatino' ">
               <div class="card-header" style="font-size: 24px;">
                 Log In

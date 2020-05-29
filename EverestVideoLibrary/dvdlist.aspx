@@ -5,6 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -2%;">DVD Details List</h4>
                 <div class="column col-6" style="margin-left: -3%; margin-top: 2%;">
+                    <%-- Gridview stars here fro DVD list --%>
                     <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-hover" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="DVD_ID" DataSourceID="Sqlgridview" GridLines="Vertical" AllowPaging="True" PageSize="5">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -21,12 +22,15 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView><br />
+                    <%-- SqlDataSource for above gridview --%>
                     <asp:SqlDataSource ID="Sqlgridview" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT CastMember.DVD_ID, DVD.DVD_title FROM Actor INNER JOIN CastMember ON Actor.ActorID = CastMember.ActorID INNER JOIN DVD ON CastMember.DVD_ID = DVD.DVD_ID WHERE @Actor_Lname = Actor.Actor_Lname">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="DropDownList1" DefaultValue="Downey" Name="Actor_Lname" PropertyName="SelectedValue" />
                         </SelectParameters>
                     </asp:SqlDataSource>
+                    <%-- Dropdown property --%>
                     <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" DataSourceID="Sqldropdown" DataTextField="Actor_Lname" DataValueField="Actor_Lname" AutoPostBack="True"></asp:DropDownList>
+                    <%-- SqlDataSource fro above dropdown property --%>
                     <asp:SqlDataSource ID="Sqldropdown" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT DISTINCT Actor_Lname FROM Actor"></asp:SqlDataSource>
                 </div>
             </div>

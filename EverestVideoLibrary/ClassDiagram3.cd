@@ -64,7 +64,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EverestVideoLibrary.DVDCopyManagement">
-    <Position X="7.25" Y="3.5" Width="1.5" />
+    <Position X="7.25" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
       <FileName>DVDdetails.aspx.cs</FileName>

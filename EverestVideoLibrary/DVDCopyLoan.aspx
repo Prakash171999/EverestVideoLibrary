@@ -5,6 +5,7 @@
             <div class="table-title">
                 <h4 style="margin-top:4%; margin-left: -1.5%;">List of DVD copies on loan</h4>
                 <div class="column col-6" style="margin-left: -3%;">
+                    <%-- Gridview starts from here --%>
                     <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="LoanID" DataSourceID="SqlDataSource1" GridLines="Vertical" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -25,12 +26,14 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
+                    <%-- SqlDataSource for above gridview --%>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Loan.LoanID, Loan.CopyID, Loan.IssuedDate, C.TotalLoansInIssuedDate, DVD_title, 
-CONCAT(Member.Member_Fname, ' ', Member.Member_Lname) AS MemberName FROM Member JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN 
-(SELECT IssuedDate,Count(IssuedDate) as TotalLoansInIssuedDate FROM Loan GROUP BY IssuedDate) AS C 
-ON Loan.IssuedDate = C.IssuedDate JOIN DVD_Copy ON DVD_Copy.CopyID = Loan.CopyID JOIN DVD ON 
-DVD.DVD_ID = DVD_Copy.DVD_ID WHERE Loan.ReturnedDate IS NULL GROUP BY Loan.CopyID, Loan.IssuedDate, C.TotalLoansInIssuedDate,
-DVD.DVD_title, Member.Member_Fname, Member.Member_Lname, Loan.LoanID ORDER BY Loan.IssuedDate, DVD.DVD_title"></asp:SqlDataSource>
+                        CONCAT(Member.Member_Fname, ' ', Member.Member_Lname) AS MemberName FROM Member JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN 
+                        (SELECT IssuedDate,Count(IssuedDate) as TotalLoansInIssuedDate FROM Loan GROUP BY IssuedDate) AS C 
+                        ON Loan.IssuedDate = C.IssuedDate JOIN DVD_Copy ON DVD_Copy.CopyID = Loan.CopyID JOIN DVD ON 
+                        DVD.DVD_ID = DVD_Copy.DVD_ID WHERE Loan.ReturnedDate IS NULL GROUP BY Loan.CopyID, Loan.IssuedDate, C.TotalLoansInIssuedDate,
+                        DVD.DVD_title, Member.Member_Fname, Member.Member_Lname, Loan.LoanID ORDER BY Loan.IssuedDate, DVD.DVD_title">
+                    </asp:SqlDataSource>
                 </div>
             </div>
         </div>

@@ -17,6 +17,7 @@ namespace EverestVideoLibrary
 
         }
 
+        //ReturnedDVD Button click event
         protected void ReturnedDVD_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-FG2OP2K;Initial Catalog=EverestVideoLibrary;Integrated Security=True");
@@ -91,7 +92,7 @@ namespace EverestVideoLibrary
 
 
         }
-
+        //Method stores the object of SqlCommand.
         public void  connection()
         {
             SqlCommand cmd4 = new SqlCommand();

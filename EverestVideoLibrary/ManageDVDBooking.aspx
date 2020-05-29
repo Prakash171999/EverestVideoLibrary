@@ -5,6 +5,8 @@
             <div class="table-title">
                 <h4 style="margin-top:2%; margin-left: -4%;">Manage DVD Booking</h4>
                 <div class="column col-6" style="margin-left: -5.5%; top: 2px; left: 3px; height: 1450px;">
+                    <%-- Gridview starts from here --%>
+                    <%-- Gridviw displays the details of the DVDs on loan --%>
                     <asp:GridView ID="GridView1" CssClass="table table-striped table-hover" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" PageSize="4">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <Columns>
@@ -30,6 +32,8 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
+                    <%-- Gridview ends here --%>
+                    <%-- Sql data source for DVD booking gridview --%>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" SelectCommand="SELECT Loan.LoanID, DVD_Copy.CopyID, Member.MemberID, LoanType.LoanTypeID, LoanType.LoanType, LoanType.LoanDuration AS TypeSpan, Loan.IssuedDate, Loan.DueDate, Loan.ReturnedDate, Loan.TotalDays AS Days, (SELECT CASE WHEN (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) &lt; 0 THEN 0 ELSE (DVD.PenaltyCharge * ((Loan.TotalDays) - (LoanType.LoanDuration))) END AS Expr1) AS Fine FROM Member INNER JOIN Loan ON Member.MemberID = Loan.MemberID INNER JOIN DVD_Copy ON Loan.CopyID = DVD_Copy.CopyID INNER JOIN DVD ON DVD.DVD_ID = DVD_Copy.DVD_ID INNER JOIN LoanType ON LoanType.LoanTypeID = Loan.LoanTypeID" DeleteCommand="DELETE FROM [DVD] WHERE [DVD_ID] = @DVD_ID" InsertCommand="INSERT INTO [DVD] ([DVD_title], [Category], [ReleaseDate], [StandardCharge]) VALUES (@DVD_title, @Category, @ReleaseDate, @StandardCharge)" UpdateCommand="UPDATE [DVD] SET [DVD_title] = @DVD_title, [Category] = @Category, [ReleaseDate] = @ReleaseDate, [StandardCharge] = @StandardCharge WHERE [DVD_ID] = @DVD_ID
 ">
                         <DeleteParameters>
@@ -49,6 +53,7 @@
                             <asp:Parameter Name="DVD_ID" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
+                    <%-- Check age restriction form starts from here --%>
                     <div class="check-restriction" style="margin-top: 5%">
                         <h5><asp:Label ID="Label1" runat="server" Text="Check Age Restriction"></asp:Label></h5><br />
                         <h6>Member ID: <asp:DropDownList ID="DropDownList1" CSSClass="form-control" runat="server" DataSourceID="SqlMemberID" DataTextField="MemberID" DataValueField="MemberID"></asp:DropDownList></h6>
@@ -59,6 +64,9 @@
                             <asp:Button ID="ChkRestrictionBtn" runat="server" Text="Check Restriction" BackColor="#000046" ForeColor="white" Height="38px" Width="153px" BorderColor="#000046" OnClick="ChkRestrictionBtn_Click" />&nbsp;&nbsp;
                         </div>
                     </div>
+                    <%-- Age restriction check form ends here --%>
+
+                    <%-- Insert item tempale which appears when add new button is clicked --%>
                     <div class="addBookDetails" style="margin-top:4%;">
                         <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource2" Height="10px" DataKeyNames="LoanID">
                             <InsertItemTemplate>
@@ -99,12 +107,14 @@
                                     </button>
                                 </div>
                             </InsertItemTemplate>
+                            <%-- Insert item template ends here --%>
                             <ItemTemplate>
                                 <button style="background-color: maroon; border-color: maroon;">
                                     &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Add New" BackColor="maroon" ForeColor="White" BorderColor="maroon" width="75px" Height="30px" />
                                 </button>
                             </ItemTemplate>
                     </asp:FormView>
+                        <%-- Sql data source for the insert item template form to insert the form data to the database --%>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EverestVideoLibraryConnectionString %>" DeleteCommand="DELETE FROM [Loan] WHERE [LoanID] = @LoanID" InsertCommand="INSERT INTO [Loan] ([CopyID], [MemberID], [LoanTypeID], [IssuedDate], [DueDate], [ReturnedDate], [TotalDays]) VALUES (@CopyID, @MemberID, @LoanTypeID, @IssuedDate, @DueDate, @ReturnedDate, @TotalDays)" SelectCommand="SELECT * FROM [Loan]" UpdateCommand="UPDATE [Loan] SET [CopyID] = @CopyID, [MemberID] = @MemberID, [LoanTypeID] = @LoanTypeID, [IssuedDate] = @IssuedDate, [DueDate] = @DueDate, [ReturnedDate] = @ReturnedDate, [TotalDays] = @TotalDays WHERE [LoanID] = @LoanID">
                             <DeleteParameters>
                                 <asp:Parameter Name="LoanID" Type="Int64" />

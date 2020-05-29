@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
         <div class="main" style="margin-left: -5.5%; top: 2px; left: 3px; height: 600px;">
+            <%-- Change password form starts from here --%>
           <div class="card text-center" style="width: 40%; height:27em; margin-top: 7%; margin-left: 28%">
               <div class="card-header" style="font-size: 20px; font-weight: bold">
                 Change Password

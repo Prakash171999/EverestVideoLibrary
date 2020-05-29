@@ -10,6 +10,8 @@ namespace EverestVideoLibrary
 {
     public partial class Dashboard : System.Web.UI.Page
     {
+        //This method loads automatically everytime the dashboard page is opened.
+        //This method gets the required value from the database through the SqlDataSources and sets the value into the respective cards. 
         protected void Page_Load(object sender, EventArgs e)
         {
             DataView memberCount = (DataView)sqlMember.Select(DataSourceSelectArguments.Empty);
